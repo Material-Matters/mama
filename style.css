@@ -11,8 +11,25 @@ html {
 
 }
 
+@font-face {
+    font-family: 'Mattone-regular';
+    src: url("./fonts/Mattone-Regular.woff2") format("woff2") ;
+}
+
+@font-face {
+    font-family: 'Mattone-bold';
+    src: url("./fonts/Mattone-Bold.woff2") format("woff2"); 
+}
+
+@font-face {
+    font-family: 'Mattone-black';
+    src: url("./fonts/Mattone-Black.woff2") format("woff2");
+}
+
+
+
 body {
-    font-family: 'Mattone', sans-serif; /* Define fallback font */
+    font-family: 'Mattone-bold', sans-serif; /* Define fallback font */
     line-height: 1.6;
     background-color: white;
     color: black;
@@ -95,7 +112,7 @@ body {
 .nav-text, .nav-separator {
     color: black;
     font-size: 10vw; /* Responsive font size based on viewport width */
-    font-family: 'Mattone', sans-serif;
+    font-family: 'Mattone-black', sans-serif;
     font-weight: 900;
     line-height: 1.1; /* Adjust line height */
      /* Prevent text selection if desired */
