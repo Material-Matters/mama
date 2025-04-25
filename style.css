@@ -52,16 +52,17 @@ body {
     outline-offset: -1px;
     font-size: 12px;
     font-weight: 700;
-    text-decoration: none; /* If these become actual links */
+    text-decoration: none;
     color: black;
-    white-space: nowrap; /* Prevent text wrapping inside button */
+    white-space: nowrap; 
     transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
 }
 
 .link-button:hover {
     background-color: #D9262C;
     color: white;
-    cursor: url('images/cursor-hearth.svg') 10 10, auto; 
+    text-decoration: none; 
+    cursor: none;
 
 }
 
@@ -104,6 +105,9 @@ body {
 
 .nav-text:hover {
     color:#D9262C;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: none;
+
 
 }
 
@@ -166,8 +170,8 @@ body {
 
     .footer {
         flex-direction: column; /* Stack footer items vertically */
-        align-items: center; /* Center items */
-        text-align: center;
+        align-items: left; /* Center items */
+        text-align: left;
         gap: 30px;
     }
 
