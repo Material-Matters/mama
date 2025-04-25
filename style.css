@@ -1,0 +1,209 @@
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    cursor: url('images/cursor-hearth.svg') 10 10, auto; 
+    scroll-behavior: smooth;
+
+}
+
+body {
+    font-family: 'Mattone', sans-serif; /* Define fallback font */
+    line-height: 1.6;
+    background-color: white;
+    color: black;
+    /* Prevent horizontal scrolling caused by potentially oversized elements */
+    overflow-x: hidden;
+
+}
+
+
+/* Main container */
+.container {
+    width: 100%;
+    /* Max width prevents it becoming too wide on large desktops */
+    max-width: 1440px; /* Adjust as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 40px 20px; /* Add some padding (top/bottom, left/right) */
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Space between main sections */
+    min-height: 100vh; /* Ensure it takes at least full viewport height */
+}
+
+/* Top Links Section */
+.top-links {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap onto the next line */
+    gap: 16px; /* Space between buttons */
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center;
+}
+
+.link-button {
+    padding: 10px 20px;
+    background: white;
+    border-radius: 20px;
+    outline: 1px solid black;
+    outline-offset: -1px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none; /* If these become actual links */
+    color: black;
+    white-space: nowrap; /* Prevent text wrapping inside button */
+    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+}
+
+.link-button:hover {
+    background-color: #D9262C;
+    color: white;
+    cursor: url('images/cursor-hearth.svg') 10 10, auto; 
+
+}
+
+
+/* Style for the disabled/different button */
+.link-button.disabled {
+     outline-color: rgba(0, 0, 0, 0.20);
+     /* Optionally reduce opacity or change cursor */
+     /* opacity: 0.6; */
+     /* cursor: not-allowed; */
+}
+
+
+/* Main Title / Navigation Section */
+.page-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Reduced gap for tighter lines */
+    align-items: flex-start; /* Keep alignment */
+}
+
+.nav-line {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+     /* Allow text to wrap if needed, especially on small screens */
+    flex-wrap: wrap;
+}
+
+.nav-text, .nav-separator {
+    color: black;
+    font-size: 10vw; /* Responsive font size based on viewport width */
+    font-family: 'Mattone', sans-serif;
+    font-weight: 900;
+    line-height: 1.1; /* Adjust line height */
+     /* Prevent text selection if desired */
+    /* user-select: none; */
+    word-wrap: break-word; /* Ensure long words break */
+}
+
+.nav-text:hover {
+    color:#D9262C;
+
+}
+
+/* Set a maximum font size to prevent it getting too huge on large screens */
+@media (min-width: 1050px) {
+    .nav-text, .nav-separator {
+        font-size: 105px; /* Max size */
+    }
+}
+ /* Set a minimum font size */
+ @media (max-width: 400px) {
+    .nav-text, .nav-separator {
+        font-size: 40px; /* Min size */
+    }
+}
+
+
+/* Footer Section */
+.footer {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: space-between; /* Space items out */
+    align-items: center;
+    gap: 20px; /* Space between text and logo when wrapped */
+    margin-top: auto; /* Push footer towards the bottom if content is short */
+    padding-top: 40px; /* Add some space above footer */
+    border-top: 1px solid rgba(0,0,0,0.1); /* Optional separator line */
+}
+
+.footer-text {
+    font-size: 10px;
+    font-weight: 400;
+    /* Allow text block to take available space, but not shrink logo */
+    flex-basis: 60%; /* Give it a base width */
+    flex-grow: 1;   /* Allow it to grow */
+    min-width: 250px; /* Prevent it getting too narrow */
+}
+
+.footer-logo {
+    /* Make image scale nicely */
+    max-width: 177px; /* Set max width based on original */
+    height: auto;    /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+/* --- Media Queries for Adjustments --- */
+
+/* Example: Tablet */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 15px;
+        gap: 60px;
+
+    }
+
+    .top-links {
+        justify-content: center; /* Center buttons on smaller screens */
+    }
+
+    .footer {
+        flex-direction: column; /* Stack footer items vertically */
+        align-items: center; /* Center items */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-text {
+        flex-basis: auto; /* Reset basis */
+    }
+}
+
+/* Example: Mobile */
+@media (max-width: 480px) {
+     .container {
+        padding: 20px 10px;
+        gap: 40px;
+    }
+
+    .top-links {
+        gap: 10px; /* Reduce gap between buttons */
+    }
+
+    .link-button {
+        padding: 8px 15px;
+        font-size: 11px;
+    }
+
+    /* Adjust nav text gap for smaller screens */
+     .nav-line {
+         gap: 10px;
+     }
+
+    .footer {
+         gap: 20px;
+     }
+     .footer-text {
+        font-size: 9px;
+     }
+     .footer-logo {
+        max-width: 140px; /* Slightly smaller logo */
+     }
+}
