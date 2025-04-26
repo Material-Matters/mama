@@ -11,6 +11,10 @@ html {
 
 }
 
+a {
+    text-decoration: none
+    }
+
 @font-face {
     font-family: 'Mattone-regular';
     src: url("./fonts/Mattone-Regular.woff2") format("woff2") ;
@@ -25,7 +29,6 @@ html {
     font-family: 'Mattone-black';
     src: url("./fonts/Mattone-Black.woff2") format("woff2");
 }
-
 
 
 body {
@@ -131,6 +134,7 @@ body {
      /* Prevent text selection if desired */
     /* user-select: none; */
     word-wrap: break-word; /* Ensure long words break */
+
 }
 
 .nav-text:hover {
