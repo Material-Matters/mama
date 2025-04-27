@@ -51,7 +51,7 @@ body {
     padding: 40px 20px; /* Add some padding (top/bottom, left/right) */
     display: flex;
     flex-direction: column;
-    gap: 80px; /* Space between main sections */
+    gap: 48px; /* Space between main sections */
     min-height: 100vh; /* Ensure it takes at least full viewport height */
 }
 
@@ -99,7 +99,6 @@ body {
     outline-offset: -1px;
     font-family: 'Mattone-bold';
     font-size: 12px;
-    font-weight: 700;
     text-decoration: none;
     color: black;
     white-space: nowrap; 
@@ -169,6 +168,8 @@ body {
     margin-top: auto; /* Push footer towards the bottom if content is short */
     padding-top: 40px; /* Add some space above footer */
     border-top: 1px solid rgba(0,0,0,0.1); /* Optional separator line */
+    font-family: 'Mattone-regular';
+
 }
 
 .footer-text {
@@ -273,8 +274,8 @@ body {
 }
 
 .page-description.resources-description {
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 14px;
+    font-family: 'Mattone-regular';
     max-width: 580px; /* Limit width of description */
     color: black;
 }
@@ -290,7 +291,7 @@ body {
 
 /* Make sure buttons have pointer cursor */
 .filter-buttons .link-button {
-    cursor: pointer;
+    cursor: none;
 }
 
 /* Resource Content Area */
@@ -341,10 +342,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px; /* Space between info, image, details */
-    background-color: #f9f9f9; /* Optional light background for card */
+    /* background-color: #f9f9f9; Optional light background for card */
     padding: 15px; /* Optional padding inside card */
     border-radius: 8px; /* Optional rounded corners */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Optional subtle shadow */
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); Optional subtle shadow */
 
     /* Default to one column, basis adjusted by helper classes/media queries */
     flex-basis: 100%; /* Start full width */
@@ -386,21 +387,29 @@ body {
 
 .card-title {
     font-size: clamp(18px, 3vw, 26px); /* Responsive */
-    font-weight: 700;
+    font-family: 'Mattone-black';
     line-height: 1.3;
     color: black;
 }
 
-.card-subtitle, .card-author {
+.card-subtitle {
     font-size: clamp(14px, 2.5vw, 18px);
-    font-weight: 400;
+    font-family: 'Mattone-bold';
     color: black;
     line-height: 1.4;
 }
 
+.card-author {
+    font-size: clamp(14px, 2.5vw, 18px);
+    font-family: 'Mattone-regular';
+    color: rgba(0, 0, 0, 0.557);
+    line-height: 1.4;
+    margin-top: 8px;
+}
+
 .card-description, .card-link, .card-added-by {
-    font-size: 10px;
-    font-weight: 400;
+    font-size: 14px;
+    font-family: 'Mattone-regular';
     color: black;
     line-height: 1.5;
 }
