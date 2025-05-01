@@ -81,6 +81,21 @@ body {
     transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
 }
 
+.link-button-blueprints {
+    padding: 10px 20px;
+    background: white;
+    border-radius: 20px;
+    outline: 1px solid black;
+    outline-offset: -1px;
+    font-family: 'Mattone-bold';
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+    white-space: nowrap; 
+    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+}
+
 .link-button-small {
     padding: 5px 10px;
     background: white;
@@ -102,6 +117,14 @@ body {
 
 .link-button:hover, .link-button-small:hover  {
     background-color: #D9262C;
+    color: white;
+    text-decoration: none; 
+    cursor: none;
+
+}
+
+.link-button-blueprints:hover {
+    background-color: #2751F6;
     color: white;
     text-decoration: none; 
     cursor: none;
@@ -522,7 +545,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 48px; /* Space between main sections */
-    height: 28vh;
+    height: 30vh;
 }
 
 
@@ -695,5 +718,7 @@ body {
     }
      .project-content-grid {
         gap: 30px;
+        
+        
     }
 }

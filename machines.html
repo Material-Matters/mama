@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Machines </title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
     </head>
 <body>
 
@@ -28,13 +30,21 @@
         <main class="container2 project-detail-section"> <section class="project-header">
                 <h2 class="card-title">LILLE LYS</h2>
                 <p class="card-subtitle">subtitle of the project</p>
-                <p class="card-author">Francesco Desimine , Hannes</p>
+                <p class="card-author">Hannes Simon Decker and Francesco Desimine </p>
             </section>
 
             <section class="project-content-grid">
 
                 <div class="project-image-column">
-                    <img src="https://placehold.co/322x300/EFEFEF/black?text=LilleLys+Image" alt="Image of LILLE LYS project">
+                    <model-viewer 
+                    src="3dmodel/lillelys.glb" 
+                    alt="Lille lys"
+                    auto-rotate 
+                    camera-controls 
+                    style="width: 100%; height: 400px; outline: 0px solid black;">
+            
+                  </model-viewer>
+                  
                 </div>
 
                 <aside class="project-info-column">
@@ -47,8 +57,8 @@
                 <aside class="project-files-column">
                     <h3 class="column-title">Files</h3>
                     <div class="project-files-list">
-                        <a href="#" class="link-button">blueprint.pdf</a> <a href="#" class="link-button">lyllelis3D.step</a>
-                        <a href="#" class="link-button">documentation.pdf</a>
+                        <a href="#" class="link-button-blueprints">blueprint.pdf</a> <a href="#" class="link-button-blueprints">lyllelis3D.step</a>
+                        <a href="#" class="link-button-blueprints">documentation.pdf</a>
                         </div>
                 </aside>
 
