@@ -15,6 +15,10 @@ a {
     text-decoration: none
     }
 
+p {
+        font-family: 'Mattone-regular';
+
+}
 @font-face {
     font-family: 'Mattone-regular';
     src: url("./fonts/Mattone-Regular.woff2") format("woff2") ;
@@ -74,7 +78,6 @@ body {
     outline-offset: -1px;
     font-family: 'Mattone-bold';
     font-size: 12px;
-    font-weight: 700;
     text-decoration: none;
     color: black;
     white-space: nowrap; 
@@ -89,12 +92,28 @@ body {
     outline-offset: -1px;
     font-family: 'Mattone-bold';
     font-size: 12px;
-    font-weight: 700;
     text-decoration: none;
     color: black;
     white-space: nowrap; 
     transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
 }
+
+.link-button-us {
+    padding: 10px 20px;
+    background: rgb(0, 0, 0);
+    border-radius: 20px;
+    outline: 1px solid rgb(255, 255, 255);
+    outline-offset: -1px;
+    font-family: 'Mattone-bold';
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+    color:  rgb(255, 255, 255);;
+
+    white-space: nowrap; 
+    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+}
+
 
 .link-button-small {
     padding: 5px 10px;
@@ -221,6 +240,7 @@ body {
     flex-basis: 60%; /* Give it a base width */
     flex-grow: 1;   /* Allow it to grow */
     min-width: 250px; /* Prevent it getting too narrow */
+    line-height: 2.4 ;
 }
 
 .footer-logo {
@@ -541,7 +561,7 @@ body {
     /* Max width prevents it becoming too wide on large desktops */
     max-width: 1440px; /* Adjust as needed */
     margin: 0 auto; /* Center the container */
-    padding: 40px 160px; /* Add some padding (top/bottom, left/right) */
+    padding: 20px 20px; /* Add some padding (top/bottom, left/right) */
     display: flex;
     flex-direction: column;
     gap: 48px; /* Space between main sections */
@@ -721,4 +741,374 @@ body {
         
         
     }
+}
+
+.tothetop {
+    width: auto; /* Let content determine width */
+    width: 60px; /* Minimum width */
+    height: 60px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    font-size: 40px; /* Slightly smaller base size */
+    font-family: 'Mattone-regular'; /* Or system emoji font */
+    outline: 1px black solid;
+    color: black;
+    transition: 300ms ease-in-out;
+    background-color: white;
+
+    position: fixed; 
+    bottom: 120px;
+    right: 45px; 
+
+}
+
+
+.tothetop:hover {
+    color: #D9262C;
+}
+
+/*how to mama
+
+/* --- Guide Page Styles --- */
+
+.guide-page {
+    /* Using .container for padding/max-width */
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Default gap between major sections */
+}
+
+/* Intro Section */
+.page-intro-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.guide-main-title {
+    color: #2751F6; /* Blue */
+    font-size: clamp(36px, 6vw, 60px);
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.intro-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow columns to wrap */
+    gap: 48px; /* Gap between text and widgets column */
+}
+
+.intro-text-column {
+    flex: 2 1 500px; /* Allow text to take more space, base width ~500px */
+    font-size: 14px;
+    font-family: 'Mattone-regular';
+    line-height: 1.6;
+}
+
+.intro-widgets-column {
+    flex: 1 1 400px; /* Base width ~400px */
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Space between glossary and suggestion box */
+    min-width: 280px; /* Prevent getting too narrow */
+}
+
+/* Widget Box Styles (Base, Glossary, Suggestion) */
+.widget-box {
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.glossary-box {
+    background-color: #F6F6F6; /* Light grey */
+    display: flex;
+    align-items: flex-start; /* Align label and text to top */
+    gap: 20px; /* Reduced gap from original 86px */
+}
+
+.glossary-label {
+    color: #D9262C; /* Red */
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0; /* Prevent label from shrinking */
+    padding-top: 2px; /* Align text baseline roughly */
+}
+
+.glossary-box p {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.suggestion-box {
+    outline: 1px dashed black;
+    outline-offset: -1px;
+    border-radius: 20px; /* Different radius */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.suggestion-content {
+     display: flex;
+     flex-direction: column;
+     gap: 8px;
+}
+
+.suggestion-box-title {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.suggestion-box-text {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.suggestion-box-actions {
+    display: flex;
+    flex-wrap: wrap; /* Allow button/link to wrap */
+    justify-content: space-between; /* Space out link and button */
+    align-items: center;
+    gap: 16px; /* Gap if they wrap */
+    margin-top: 8px; /* Add some space above actions */
+}
+
+.video-guide-link {
+    color: #2751F6; /* Blue */
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.suggestion-box-actions .link-button {
+    flex-grow: 1; /* Allow button to take space */
+    max-width: 250px; /* Limit button width */
+    text-align: center; /* Center text in button */
+}
+
+
+/* Chapter Navigation */
+.chapter-nav-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px; /* Add space above chapter nav */
+}
+
+.chapters-nav-title {
+    font-size: 12px;
+    font-weight: 400;
+    color: black;
+}
+
+.chapter-nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center; /* Vertically align buttons if they wrap */
+}
+
+/* Main Guide Content */
+.guide-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Space between chapters */
+    margin-top: 40px; /* Space below chapter nav */
+}
+
+.guide-chapter {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-top: 1px dashed #ccc; /* Optional separator between chapters */
+    padding-top: 40px;
+}
+.guide-main-content .guide-chapter:first-child {
+    border-top: none; /* Remove border from first chapter */
+    padding-top: 0;
+}
+
+/* .chapter-header {
+    /* Styles for chapter header if needed } */
+
+.chapter-breadcrumb {
+    font-size: 18px; /* Was 17.99px */
+    font-weight: 400;
+    color: black;
+    word-wrap: break-word;
+}
+
+.chapter-content-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start; /* Align tops of columns */
+}
+
+.chapter-text-column {
+    flex: 1 1 500px; /* Base width ~500px */
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Space between info boxes */
+    min-width: 280px;
+}
+
+.chapter-info-box {
+    background: #F6F6F6;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-family: 'Mattone-regular';
+    line-height: 1.6;
+}
+
+.chapter-image-column {
+    flex: 1 1 400px; /* Base width ~400px */
+    min-width: 280px;
+}
+
+.chapter-image-column img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 1px solid black; /* As per original style */
+}
+
+
+/* Tips Section */
+.tips-section {
+    margin-top: 40px; /* Space above tips section */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tips-section-title {
+    font-size: 18px; /* Was 17.99px */
+    font-weight: 400;
+    color: black;
+}
+
+.tips-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-bottom: 32px; /* Space before final suggestion box */
+}
+
+.tip-card {
+    background: #F6F6F6;
+    border-radius: 20px;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center; /* Align icon and text to top */
+    gap: 20px; /* Reduced gap from original 40px */
+    flex: 1 1 300px; /* Base width ~300px for 3 columns initially */
+    min-width: 260px;
+}
+
+.tip-icon {
+    font-size: 37px; /* Keep original large icon size */
+    line-height: 1; /* Adjust line height for icon */
+    flex-shrink: 0;
+    width: 40px; /* Give icon some space */
+    text-align: center;
+}
+
+.tip-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-grow: 1;
+}
+
+.tip-title {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.tip-text {
+    font-size: 12px;
+    font-family: 'Mattone-regular';
+    line-height: 1.5;
+}
+
+.tip-author {
+    font-size: 10px;
+    font-weight: 400; /* Adjusted based on some examples */
+    color: #555; /* Slightly muted */
+    margin-top: 4px;
+}
+/* Handle bold author where needed */
+.tip-card:nth-child(3) .tip-author { /* Example: Target 3rd tip card */
+    font-weight: 700;
+    color: #555;  /* Restore color if needed */
+}
+
+.tips-suggestion-box {
+    /* Styles inherited from .suggestion-box */
+    /* Add specific overrides if needed */
+    max-width: 400px; /* Limit width maybe */
+    margin-left: auto; /* Example alignment */
+    margin-right: auto;
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 992px) {
+    /* Stack intro columns */
+    .intro-grid {
+        gap: 30px;
+    }
+    .intro-text-column,
+    .intro-widgets-column {
+        flex-basis: 100%;
+        min-width: unset;
+    }
+
+    /* Stack chapter content columns */
+    .chapter-content-grid {
+        gap: 30px;
+    }
+     .chapter-text-column,
+     .chapter-image-column {
+        flex-basis: 100%;
+        min-width: unset;
+     }
+     /* Optional: put image first on mobile? */
+     .chapter-image-column {
+        order: -1;
+     }
+
+    /* Adjust tips grid to 2 columns */
+     .tip-card {
+         flex-basis: calc(50% - 16px); /* Adjust calc based on gap */
+     }
+}
+
+@media (max-width: 600px) {
+    .guide-page {
+        gap: 30px;
+    }
+     /* Stack tip cards to 1 column */
+     .tip-card {
+         flex-basis: 100%;
+     }
+     .suggestion-box-actions {
+         flex-direction: column; /* Stack actions vertically */
+         align-items: stretch; /* Make button full width */
+         text-align: center;
+     }
+     .tips-suggestion-box {
+        max-width: 100%;
+     }
 }
