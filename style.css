@@ -442,6 +442,17 @@ body {
      gap: 8px; /* Space within details block */
      /* Order details block third visually */
      order: 3;
+
+}
+
+.card-details-friends {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Space within details block */
+    /* Order details block third visually */
+    order: 3;
+    align-items: center;
+
 }
 
 .card-year {
@@ -802,7 +813,7 @@ body {
 
 .intro-text-column {
     flex: 2 1 500px; /* Allow text to take more space, base width ~500px */
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'Mattone-regular';
     line-height: 1.6;
 }
