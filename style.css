@@ -55,7 +55,7 @@ body {
     padding: 40px 20px; /* Add some padding (top/bottom, left/right) */
     display: flex;
     flex-direction: column;
-    gap: 48px; /* Space between main sections */
+    gap: 0px; /* Space between main sections */
     min-height: 100vh; /* Ensure it takes at least full viewport height */
 }
 
@@ -138,17 +138,17 @@ body {
     background-color: #D9262C;
     color: white;
     text-decoration: none; 
-    cursor: none;
+    cursor: pointer;}
 
-}
+
 
 .link-button-blueprints:hover {
     background-color: #2751F6;
     color: white;
     text-decoration: none; 
-    cursor: none;
+    cursor: pointer;}
 
-}
+
 
 
 /* Style for the disabled/different button */
@@ -183,13 +183,25 @@ body {
     gap: 15px;
      /* Allow text to wrap if needed, especially on small screens */
     flex-wrap: wrap;
+    margin-top: 32px ;
 }
 
 .nav-text {
     color: black;
-    font-size: 10vw; /* Responsive font size based on viewport width */
-    font-family: 'Mattone-black', sans-serif;
-    font-weight: 900;
+    font-size: 105px ;
+    font-family: 'Mattone-black';
+    line-height: 1.1; /* Adjust line height */
+     /* Prevent text selection if desired */
+    /* user-select: none; */
+    word-wrap: break-word; /* Ensure long words break */
+
+}
+
+.nav-text-blue {
+    color: black;
+    font-family: 'Mattone-black';
+    font-size: 105px ;
+
     line-height: 1.1; /* Adjust line height */
      /* Prevent text selection if desired */
     /* user-select: none; */
@@ -200,21 +212,27 @@ body {
 .nav-text:hover {
     color:#D9262C;
     transition: background-color 0.3s, color 0.3s;
-    cursor: none;
+    cursor: pointer;}
 
 
-}
+    .nav-text-blue:hover {
+        color:#2751F6;
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;}
+    
+
 
 /* Set a maximum font size to prevent it getting too huge on large screens */
-@media (min-width: 1050px) {
-    .nav-text, .nav-separator {
-        font-size: 105px; /* Max size */
+ /* Set a minimum font size */
+
+ @media (max-width: 1050px) {
+    .nav-text, .nav-text-blue, .nav-separator {
+        font-size: 64px; /* Min size */
     }
 }
- /* Set a minimum font size */
  @media (max-width: 400px) {
-    .nav-text, .nav-separator {
-        font-size: 40px; /* Min size */
+    .nav-text, .nav-text-blue, .nav-separator {
+        font-size: 32px; /* Min size */
     }
 }
 
@@ -230,6 +248,9 @@ body {
     padding-top: 40px; /* Add some space above footer */
     border-top: 1px solid rgba(0,0,0,0.1); /* Optional separator line */
     font-family: 'Mattone-regular';
+    padding-right: 80px;
+    padding-left: 80px;
+
 
 }
 
@@ -314,17 +335,16 @@ body {
 .resources-page {
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Spacing between header, filters, content */
 }
 
 /* Page Header */
 .page-header {
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     gap: 10px;
-    margin-top: 40px; /* Add some space below top links */
+    margin: 40px; /* Add some space below top links */
     margin-bottom: 20px;
 }
 
@@ -338,7 +358,7 @@ body {
 .page-description.resources-description {
     font-size: 14px;
     font-family: 'Mattone-regular';
-    max-width: 580px; /* Limit width of description */
+    max-width: 700px; /* Limit width of description */
     color: black;
 }
 
@@ -346,15 +366,16 @@ body {
 .filter-buttons {
     display: flex;
     flex-wrap: wrap; /* Allow wrapping */
-    justify-content: center; /* Center buttons */
+    justify-content: left; /* Center buttons */
     gap: 12px; /* Space between buttons */
-    margin-bottom: 40px;
+    margin-left: 40px;
+    margin-top: 8px;
+
 }
 
 /* Make sure buttons have pointer cursor */
 .filter-buttons .link-button {
-    cursor: none;
-}
+cursor: pointer;}
 
 /* Resource Content Area */
 .resource-content {
@@ -363,20 +384,23 @@ body {
     gap: 60px; /* Space between resource sections */
     margin-left: 64px;
     margin-right: 64px;
+    margin-top: 8px;
 
 }
 
 .resource-section {
     display: flex;
     flex-direction: column;
+    margin-top: 24px;
+
     gap: 30px; /* Space between section header and card grids */
 }
 
 .section-header {
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     gap: 8px;
     margin-bottom: 10px;
 }
@@ -388,10 +412,10 @@ body {
 }
 
 .section-description {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
-    max-width: 610px; /* Limit width */
     color: black;
+    margin-bottom: 8px;
 }
 
 /* Card Grid Layout */
@@ -399,7 +423,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 30px; /* Default gap between cards */
-    justify-content: center; /* Center cards within the grid */
+    justify-content: left; /* Center cards within the grid */
 }
 
 /* Resource Card Styling */
@@ -416,6 +440,7 @@ body {
     flex-basis: 100%; /* Start full width */
     min-width: 220px; /* Prevent cards becoming too narrow */
     max-width: 100%;
+    max-height: fit-content;
 }
 
 .card-info {
@@ -811,6 +836,12 @@ body {
     gap: 48px; /* Gap between text and widgets column */
 }
 
+.intro-grid2 {
+    display: flex;
+    flex-direction: row;
+    gap: 48px; /* Gap between text and widgets column */
+}
+
 .intro-text-column {
     flex: 2 1 500px; /* Allow text to take more space, base width ~500px */
     font-size: 16px;
@@ -834,8 +865,8 @@ body {
 
 .glossary-box {
     background-color: #F6F6F6; /* Light grey */
-    display: flex;
-    align-items: flex-start; /* Align label and text to top */
+    display: table-row;
+    align-items: flex; /* Align label and text to top */
     gap: 20px; /* Reduced gap from original 86px */
 }
 
@@ -862,6 +893,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    max-width: fit-content;
+
 }
 
 .suggestion-content {
@@ -884,7 +917,7 @@ body {
 .suggestion-box-actions {
     display: flex;
     flex-wrap: wrap; /* Allow button/link to wrap */
-    justify-content: space-between; /* Space out link and button */
+    justify-content: space-left; /* Space out link and button */
     align-items: center;
     gap: 16px; /* Gap if they wrap */
     margin-top: 8px; /* Add some space above actions */
