@@ -63,7 +63,7 @@ body {
 .top-links {
     display: flex;
     flex-wrap: wrap; /* Allow items to wrap onto the next line */
-    gap: 16px; /* Space between buttons */
+    gap: 8px; /* Space between buttons */
     justify-content: flex-start; /* Align items to the start */
     align-items: center;
     text-decoration: none;
@@ -197,6 +197,27 @@ body {
 
 }
 
+.nav-text2 {
+    color: black;
+    font-size: 20px ;
+    font-family: 'Mattone-black';
+    line-height: 1.1; /* Adjust line height */
+     /* Prevent text selection if desired */
+    /* user-select: none; */
+    word-wrap: break-word; /* Ensure long words break */
+
+}
+.nav-text3 {
+    color: rgb(255, 255, 255);
+    font-size: 20px ;
+    font-family: 'Mattone-black';
+    line-height: 1.1; /* Adjust line height */
+     /* Prevent text selection if desired */
+    /* user-select: none; */
+    word-wrap: break-word; /* Ensure long words break */
+
+}
+
 .nav-text-blue {
     color: black;
     font-family: 'Mattone-black';
@@ -209,13 +230,45 @@ body {
 
 }
 
+.nav-text-blue2 {
+    color: black;
+    font-family: 'Mattone-black';
+    font-size: 20px ;
+
+    line-height: 1.1; /* Adjust line height */
+     /* Prevent text selection if desired */
+    /* user-select: none; */
+    word-wrap: break-word; /* Ensure long words break */
+
+}
+
+
 .nav-text:hover {
     color:#D9262C;
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;}
 
+.nav-text2:hover {
+    color:#D9262C;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;}
+
+
+.nav-text3:hover {
+    color:#000000;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;}
+
+
+
+
 
     .nav-text-blue:hover {
+        color:#2751F6;
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;}
+    
+    .nav-text-blue2:hover {
         color:#2751F6;
         transition: background-color 0.3s, color 0.3s;
         cursor: pointer;}
@@ -343,7 +396,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: left;
-    gap: 10px;
+    gap: 0px;
     margin: 40px; /* Add some space below top links */
     margin-bottom: 20px;
 }
@@ -358,7 +411,7 @@ body {
 .page-description.resources-description {
     font-size: 14px;
     font-family: 'Mattone-regular';
-    max-width: 700px; /* Limit width of description */
+    max-width: 1000px; /* Limit width of description */
     color: black;
 }
 
@@ -369,7 +422,7 @@ body {
     justify-content: left; /* Center buttons */
     gap: 12px; /* Space between buttons */
     margin-left: 40px;
-    margin-top: 8px;
+    margin-top: 0px;
 
 }
 
@@ -588,7 +641,7 @@ cursor: pointer;}
 .page-hero.machines-hero {
     background-color: #2751F6;
     color: white; /* Default text color for hero content */
-    padding-top: 20px; /* Space above top links */
+    padding-top:   0px; /* Space above top links */
     padding-bottom: 40px; /* Space below hero text */
 }
 
@@ -597,19 +650,21 @@ cursor: pointer;}
     /* Max width prevents it becoming too wide on large desktops */
     max-width: 1440px; /* Adjust as needed */
     margin: 0 auto; /* Center the container */
-    padding: 20px 20px; /* Add some padding (top/bottom, left/right) */
+    padding: 40px 20px; /* Add some padding (top/bottom, left/right) */
     display: flex;
     flex-direction: column;
-    gap: 48px; /* Space between main sections */
-    height: 30vh;
+    gap: 0px; /* Space between main sections */
+    height: 33vh;
 }
+
+
 
 
 .hero-content-area {
      /* Reusing .container class here for padding and max-width */
      display: flex;
      flex-direction: column;
-     gap: 40px; /* Space between top links and hero text */
+     gap: 0px; /* Space between top links and hero text */
 }
 
 
@@ -797,7 +852,7 @@ cursor: pointer;}
 
     position: fixed; 
     bottom: 120px;
-    right: 45px; 
+    right: 40px; 
 
 }
 
@@ -949,6 +1004,7 @@ cursor: pointer;}
     font-size: 12px;
     font-weight: 400;
     color: black;
+
 }
 
 .chapter-nav-list {
@@ -956,6 +1012,7 @@ cursor: pointer;}
     flex-wrap: wrap;
     gap: 12px;
     align-items: center; /* Vertically align buttons if they wrap */
+
 }
 
 /* Main Guide Content */
@@ -1046,6 +1103,12 @@ cursor: pointer;}
     flex-wrap: wrap;
     gap: 32px;
     margin-bottom: 32px; /* Space before final suggestion box */
+}
+
+.imgtiles {
+
+    max-block-size: 200px;
+
 }
 
 .tip-card {
