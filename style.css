@@ -38,7 +38,7 @@ p {
 body {
     font-family: 'Mattone-bold', sans-serif; /* Define fallback font */
     line-height: 1.6;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     color: black;
     /* Prevent horizontal scrolling caused by potentially oversized elements */
     overflow-x: hidden;
