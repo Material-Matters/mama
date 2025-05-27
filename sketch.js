@@ -3,13 +3,14 @@
 // Modifiche per mantenere l'aspect ratio e fix per flickering
 
 let x, y, xspeed, yspeed;
+let canvas
 let img; // Variabile per l'immagine corrente
 let images = []; // Array per contenere tutte le immagini caricate
 let currentImageIndex = 0; // Indice dell'immagine corrente
 
 // Dimensioni desiderate massime per il box dell'immagine
-let targetBoxWidth = 1000;
-let targetBoxHeight = 1000;
+let targetBoxWidth = 200;
+let targetBoxHeight = 200;
 
 // Dimensioni effettive di visualizzazione dell'immagine (calcolate per mantenere l'aspect ratio)
 let displayImgWidth;
@@ -17,18 +18,26 @@ let displayImgHeight;
 
 // Elenco dei nomi dei file delle tue immagini
 // Assicurati che questi file esistano nella cartella 'bouncingimage'
-let imageFiles = ['images/bouncingimage/1.webp', 'images/bouncingimage/2.webp', 'images/bouncingimage/4.webp','images/bouncingimage/4.webp','images/bouncingimage/5.webp','images/bouncingimage/6.webp','images/bouncingimage/7.webp','images/bouncingimage/8.webp','images/bouncingimage/9.webp','images/bouncingimage/10.webp'];
+let imageFiles = ['1.webp', '2.webp', '3.webp','4.webp','5.webp','6.webp','7.webp','8.webp','9.webp','10.webp'];
 
 function preload() {
   for (let i = 0; i < imageFiles.length; i++) {
-    images[i] = loadImage('images/bouncingimage' + imageFiles[i]);
+    images[i] = loadImage('images/bouncingimage/' + imageFiles[i]);
   }
 }
 
 function setup() {
-  createCanvas(400, 400);
-  xspeed = 3;
-  yspeed = 3;
+  createCanvas(windowWidth, windowHeight);
+  canvas = createCanvas(windowWidth, windowHeight);
+  canvas.position(0, 0);
+  canvas.style('z-index', '-1');
+  canvas.style('position', 'absolute');
+  canvas.style('top', '0');
+  canvas.style('left', '0');
+  canvas.style('pointer-events', 'none');
+
+  xspeed = 2;
+  yspeed = 7;
 
   if (images.length > 0) {
     img = images[currentImageIndex];
@@ -52,7 +61,7 @@ function setup() {
 }
 
 function draw() {
-  background(256);
+  background(256,256,256,);
 
   // Salva le dimensioni di visualizzazione correnti per usarle consistentemente in questo frame
   let FDW = displayImgWidth;  // Frame Display Width
@@ -139,4 +148,6 @@ function updateDisplayDimensions() {
     displayImgHeight = targetBoxHeight;
     displayImgWidth = targetBoxHeight * originalAspectRatio;
   }
+
+
 }

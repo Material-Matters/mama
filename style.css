@@ -42,6 +42,10 @@ body {
     color: black;
     /* Prevent horizontal scrolling caused by potentially oversized elements */
     overflow-x: hidden;
+    body {
+  margin: 0;
+}
+
 
 }
 
