@@ -20,6 +20,8 @@ let displayImgHeight;
 // Assicurati che questi file esistano nella cartella 'bouncingimage'
 let imageFiles = ['1.webp', '2.webp', '3.webp','4.webp','5.webp','6.webp','7.webp','8.webp','9.webp','10.webp'];
 
+//use 200px x 200px images
+
 function preload() {
   for (let i = 0; i < imageFiles.length; i++) {
     images[i] = loadImage('images/bouncingimage/' + imageFiles[i]);
@@ -30,7 +32,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.position(0, 0);
-  canvas.style('z-index', '-1');
+  canvas.style('z-index', '1');
   canvas.style('position', 'absolute');
   canvas.style('top', '0');
   canvas.style('left', '0');
@@ -61,8 +63,7 @@ function setup() {
 }
 
 function draw() {
-  background(256,256,256,);
-
+clear();
   // Salva le dimensioni di visualizzazione correnti per usarle consistentemente in questo frame
   let FDW = displayImgWidth;  // Frame Display Width
   let FDH = displayImgHeight; // Frame Display Height
