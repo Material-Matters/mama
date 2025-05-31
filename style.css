@@ -291,6 +291,15 @@ body {
     .nav-text, .nav-text-blue, .nav-separator {
         font-size: 32px; /* Min size */
     }
+    .nav-line {
+align-content: center;
+justify-content: center;
+    }
+
+    .nav-text2,   .nav-text-blue2, .nav-text3 {
+                font-size: 15px; /* Min size */
+
+    }
 }
 
 
@@ -364,6 +373,7 @@ body {
 
     .top-links {
         gap: 10px; /* Reduce gap between buttons */
+
     }
 
     .link-button {
@@ -658,7 +668,7 @@ cursor: pointer;}
     display: flex;
     flex-direction: column;
     gap: 0px; /* Space between main sections */
-    height: 33vh;
+    height: fit-content;
 }
 
 
