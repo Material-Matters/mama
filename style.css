@@ -183,7 +183,8 @@ body {
 
 .nav-line {
     display: flex;
-    align-items: center;
+    align-items: left;
+    align-content: left;
     gap: 15px;
      /* Allow text to wrap if needed, especially on small screens */
     flex-wrap: wrap;
@@ -198,6 +199,7 @@ body {
      /* Prevent text selection if desired */
     /* user-select: none; */
     word-wrap: break-word; /* Ensure long words break */
+
 
 }
 
@@ -287,13 +289,13 @@ body {
         font-size: 64px; /* Min size */
     }
 }
- @media (max-width: 400px) {
+ @media (max-width: 450px) {
     .nav-text, .nav-text-blue, .nav-separator {
         font-size: 32px; /* Min size */
     }
     .nav-line {
-align-content: center;
-justify-content: center;
+align-content: left;
+justify-content: left;
     }
 
     .nav-text2,   .nav-text-blue2, .nav-text3 {
