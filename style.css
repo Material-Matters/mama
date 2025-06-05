@@ -1056,7 +1056,7 @@ cursor: pointer;}
 
 .chapter-breadcrumb {
     font-size: 18px; /* Was 17.99px */
-    font-weight: 400;
+    font-family: 'Mattone-bold';
     color: black;
     word-wrap: break-word;
 }
@@ -1110,7 +1110,7 @@ cursor: pointer;}
 
 .tips-section-title {
     font-size: 18px; /* Was 17.99px */
-    font-weight: 400;
+    font-family: 'Mattone-regular';
     color: black;
 }
 
