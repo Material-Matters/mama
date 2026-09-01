@@ -130,22 +130,33 @@ document.addEventListener("DOMContentLoaded", () => {
     contentArea.style.display = "none";
   }
 
-  // Swipe-right to go back (touch + trackpad)
-  let touchStartX = 0;
-  let touchStartY = 0;
+  // Swipe-right to go back (mobile touch)
+  let swipeStartX = null;
+  let swipeStartY = null;
+  let swipeEndX = null;
+  let swipeEndY = null;
 
-  contentArea.addEventListener("touchstart", (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
+  document.addEventListener("touchstart", (e) => {
+    swipeStartX = e.touches[0].clientX;
+    swipeStartY = e.touches[0].clientY;
+    swipeEndX = swipeStartX;
+    swipeEndY = swipeStartY;
   }, { passive: true });
 
-  contentArea.addEventListener("touchend", (e) => {
-    const deltaX = e.changedTouches[0].screenX - touchStartX;
-    const deltaY = Math.abs(e.changedTouches[0].screenY - touchStartY);
-    // Swipe right at least 50px, and more horizontal than vertical
-    if (deltaX > 50 && deltaX > deltaY) {
+  document.addEventListener("touchmove", (e) => {
+    swipeEndX = e.touches[0].clientX;
+    swipeEndY = e.touches[0].clientY;
+  }, { passive: true });
+
+  document.addEventListener("touchend", () => {
+    if (swipeStartX === null) return;
+    const deltaX = swipeEndX - swipeStartX;
+    const deltaY = Math.abs(swipeEndY - swipeStartY);
+    // Swipe right at least 80px, and more horizontal than vertical
+    if (deltaX > 80 && deltaX > deltaY * 1.5) {
       goBack();
     }
+    swipeStartX = null;
   }, { passive: true });
 
   // Extract back logic into a reusable function
