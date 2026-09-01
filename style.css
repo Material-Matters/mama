@@ -1,1237 +1,530 @@
-/* Basic Reset */
+@font-face {
+  font-family: 'Arial';
+  src: local('Arial');
+}
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
-html {
-    cursor: url('images/cursor-hearth.svg') 10 10, auto; 
-    scroll-behavior: smooth;
-
-}
-
-a {
-    text-decoration: none
-    }
-
-p {
-        font-family: 'Mattone-regular';
-
-}
-@font-face {
-    font-family: 'Mattone-regular';
-    src: url("./fonts/Mattone-Regular.woff2") format("woff2") ;
-}
-
-@font-face {
-    font-family: 'Mattone-bold';
-    src: url("./fonts/Mattone-Bold.woff2") format("woff2"); 
-}
-
-@font-face {
-    font-family: 'Mattone-black';
-    src: url("./fonts/Mattone-Black.woff2") format("woff2");
-}
-
 
 body {
-    font-family: 'Mattone-bold', sans-serif; /* Define fallback font */
-    line-height: 1.6;
-    background-color: rgb(255, 255, 255);
-    color: black;
-    /* Prevent horizontal scrolling caused by potentially oversized elements */
-    overflow-x: hidden;
-    body {
+  font-family: 'Arial', sans-serif;
   margin: 0;
+  padding: 0;
+  background-color: white;
+  color: black;
+  overflow-x: hidden;
+  height: 100vh;
+  cursor: url('cursor-hearth.svg'), auto !important;
 }
 
-
+body, body * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, filter 0.3s ease;
 }
 
-
-/* Main container */
-.container {
-    width: 100%;
-    /* Max width prevents it becoming too wide on large desktops */
-    max-width: 1440px; /* Adjust as needed */
-    margin: 0 auto; /* Center the container */
-    padding: 40px 20px; /* Add some padding (top/bottom, left/right) */
-    display: flex;
-    flex-direction: column;
-    gap: 0px; /* Space between main sections */
-    min-height: 100vh; /* Ensure it takes at least full viewport height */
+a,
+button,
+.nav-btn,
+.back-bar,
+.back-to-home-desk,
+[style*="cursor: pointer"] {
+  cursor: url('cursor-hearth.svg'), pointer !important;
 }
 
-/* Top Links Section */
-.top-links {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap onto the next line */
-    gap: 8px; /* Space between buttons */
-    justify-content: flex-start; /* Align items to the start */
-    align-items: center;
-    text-decoration: none;
-
+a *,
+button *,
+.nav-btn *,
+.back-bar *,
+.back-to-home-desk *,
+[style*="cursor: pointer"] * {
+  cursor: url('cursor-hearth.svg'), pointer !important;
 }
 
-.link-button {
-    padding: 10px 20px;
-    background: white;
-    border-radius: 20px;
-    outline: 1px solid black;
-    outline-offset: -1px;
-    font-family: 'Mattone-bold';
-    font-size: 12px;
-    text-decoration: none;
-    color: black;
-    white-space: nowrap; 
-    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+/* Base flex layout */
+#app-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
-.link-button-blueprints {
-    padding: 10px 20px;
-    background: white;
-    border-radius: 20px;
-    outline: 1px solid black;
-    outline-offset: -1px;
-    font-family: 'Mattone-bold';
-    font-size: 12px;
-    text-decoration: none;
-    color: black;
-    white-space: nowrap; 
-    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+/* Sidebar Styling */
+#sidebar {
+  width: 380px;
+  min-width: 380px;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  z-index: 10;
+  padding: 20px 0;
 }
 
-.link-button-us {
-    padding: 10px 20px;
-    background: rgb(0, 0, 0);
-    border-radius: 20px;
-    outline: 1px solid rgb(255, 255, 255);
-    outline-offset: -1px;
-    font-family: 'Mattone-bold';
-    font-size: 12px;
-    text-decoration: none;
-    color: black;
-    color:  rgb(255, 255, 255);;
-
-    white-space: nowrap; 
-    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+/* Hide scrollbar for sidebar */
+#sidebar::-webkit-scrollbar {
+  display: none;
 }
 
-
-.link-button-small {
-    padding: 5px 10px;
-    background: white;
-    border-radius: 20px;
-    outline: 1px solid black;
-    outline-offset: -1px;
-    font-family: 'Mattone-bold';
-    font-size: 10px;
-    font-weight: 700;
-    text-decoration: none;
-    color: black;
-    white-space: nowrap; 
-    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
-    margin-left: 5px ;
-    margin-right: 5px ;
-
+#sidebar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-
-.link-button:hover, .link-button-small:hover  {
-    background-color: #D9262C;
-    color: white;
-    text-decoration: none; 
-    cursor: pointer;}
-
-
-
-.link-button-blueprints:hover {
-    background-color: #2751F6;
-    color: white;
-    text-decoration: none; 
-    cursor: pointer;}
-
-
-
-
-/* Style for the disabled/different button */
-.link-button-disabled {
-    padding: 10px 20px;
-    background: white;
-    border-radius: 20px;
-    outline: 1px solid rgba(0, 0, 0, 0.448);
-    outline-offset: -1px;
-    font-family: 'Mattone-bold';
-    font-size: 12px;
-    text-decoration: none;
-    color: black;
-    white-space: nowrap; 
-    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+.sidebar-header {
+  padding: 0 20px 20px 20px;
 }
 
-
-
-
-/* Main Title / Navigation Section */
-.page-navigation {
-    display: flex;
-    flex-direction: column;
-    gap: 0; /* Reduced gap for tighter lines */
-    align-items: flex-start; /* Keep alignment */
+.heart-logo {
+  width: 100px;
+  display: block;
+  margin-bottom: 20px;
 }
 
-.nav-line {
-    display: flex;
-    align-items: left;
-    align-content: left;
-    gap: 15px;
-     /* Allow text to wrap if needed, especially on small screens */
-    flex-wrap: wrap;
-    margin-top: 32px ;
+.header-links {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.header-link {
+  text-decoration: underline;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.sidebar-header h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.sidebar-header h2 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Navigation List */
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid black;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  color: black;
+  transition: background-color 0.2s;
+  background-color: white;
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  background-color: #f0f0f0;
+}
+
+a:hover,
+a:hover * {
+  color: #D9262C !important;
+  transition: color 0.2s ease;
+}
+
+.nav-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.blue-square {
+  width: 60px;
+  height: 60px;
+  background-color: #0055ff;
+  margin-right: 16px;
 }
 
 .nav-text {
-    color: black;
-    font-size: 105px ;
-    font-family: 'Mattone-black';
-    line-height: 1.1; /* Adjust line height */
-     /* Prevent text selection if desired */
-    /* user-select: none; */
-    word-wrap: break-word; /* Ensure long words break */
-
-
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
 }
 
-.nav-text2 {
-    color: black;
-    font-size: 20px ;
-    font-family: 'Mattone-black';
-    line-height: 1.1; /* Adjust line height */
-     /* Prevent text selection if desired */
-    /* user-select: none; */
-    word-wrap: break-word; /* Ensure long words break */
-
-}
-.nav-text3 {
-    color: rgb(255, 255, 255);
-    font-size: 20px ;
-    font-family: 'Mattone-black';
-    line-height: 1.1; /* Adjust line height */
-     /* Prevent text selection if desired */
-    /* user-select: none; */
-    word-wrap: break-word; /* Ensure long words break */
-
+.nav-text strong {
+  font-size: 16px;
+  margin-bottom: 4px;
 }
 
-.nav-text-blue {
-    color: black;
-    font-family: 'Mattone-black';
-    font-size: 105px ;
-
-    line-height: 1.1; /* Adjust line height */
-     /* Prevent text selection if desired */
-    /* user-select: none; */
-    word-wrap: break-word; /* Ensure long words break */
-
+.sidebar-footer {
+  padding: 20px;
+  font-size: 12px;
 }
 
-.nav-text-blue2 {
-    color: black;
-    font-family: 'Mattone-black';
-    font-size: 20px ;
-
-    line-height: 1.1; /* Adjust line height */
-     /* Prevent text selection if desired */
-    /* user-select: none; */
-    word-wrap: break-word; /* Ensure long words break */
-
-}
-
-
-.nav-text:hover {
-    color:#D9262C;
-    transition: background-color 0.3s, color 0.3s;
-    cursor: pointer;}
-
-.nav-text2:hover {
-    color:#D9262C;
-    transition: background-color 0.3s, color 0.3s;
-    cursor: pointer;}
-
-
-.nav-text3:hover {
-    color:#000000;
-    transition: background-color 0.3s, color 0.3s;
-    cursor: pointer;}
-
-
-
-
-
-    .nav-text-blue:hover {
-        color:#2751F6;
-        transition: background-color 0.3s, color 0.3s;
-        cursor: pointer;}
-    
-    .nav-text-blue2:hover {
-        color:#2751F6;
-        transition: background-color 0.3s, color 0.3s;
-        cursor: pointer;}
-    
-
-
-/* Set a maximum font size to prevent it getting too huge on large screens */
- /* Set a minimum font size */
-
- @media (max-width: 1050px) {
-    .nav-text, .nav-text-blue, .nav-separator {
-        font-size: 64px; /* Min size */
-    }
-}
- @media (max-width: 450px) {
-    .nav-text, .nav-text-blue, .nav-separator {
-        font-size: 32px; /* Min size */
-    }
-    .nav-line {
-align-content: left;
-justify-content: left;
-    }
-
-    .nav-text2,   .nav-text-blue2, .nav-text3 {
-                font-size: 15px; /* Min size */
-
-    }
-}
-
-
-/* Footer Section */
-.footer {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap */
-    justify-content: space-between; /* Space items out */
-    align-items: center;
-    gap: 20px; /* Space between text and logo when wrapped */
-    margin-top: auto; /* Push footer towards the bottom if content is short */
-    padding-top: 40px; /* Add some space above footer */
-    border-top: 1px solid rgba(0,0,0,0.1); /* Optional separator line */
-    font-family: 'Mattone-regular';
-    padding-right: 80px;
-    padding-left: 80px;
-
-
-}
-
-.footer-text {
-    font-size: 10px;
-    font-weight: 400;
-    /* Allow text block to take available space, but not shrink logo */
-    flex-basis: 60%; /* Give it a base width */
-    flex-grow: 1;   /* Allow it to grow */
-    min-width: 250px; /* Prevent it getting too narrow */
-    line-height: 2.4 ;
+.sidebar-footer p {
+  margin-bottom: 10px;
 }
 
 .footer-logo {
-    /* Make image scale nicely */
-    max-width: 177px; /* Set max width based on original */
-    height: auto;    /* Maintain aspect ratio */
-    display: block; /* Remove extra space below image */
-    flex-shrink: 0; /* Prevent logo from shrinking */
+  height: 40px;
+  margin: 10px 0;
 }
 
-/* --- Media Queries for Adjustments --- */
+/* Main Content Area */
+#content-area {
+  flex-grow: 1;
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  background-color: white;
+}
 
-/* Example: Tablet */
+/* Fade to white transition elements */
+#fade-overlay {
+  position: fixed;
+  top: 0;
+  left: 380px;
+  width: calc(100vw - 380px);
+  height: 100vh;
+  background-color: white;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.fade-active {
+  opacity: 1 !important;
+  pointer-events: all !important;
+}
+
+/* Sections */
+#p5-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#p5-container.active-section {
+  display: block;
+}
+
+.content-section {
+  display: none;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  min-height: 100%;
+}
+
+.content-section.active-section {
+  display: flex;
+}
+
+/* Black Back Bar Desktop */
+.back-bar {
+  background-color: black;
+  color: white;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  border: 1px solid white;
+}
+
+.back-to-home-desk {
+  background: none;
+  border: none;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.back-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.hero-img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.hero-img-contain {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.checker-bg {
+  background-image: repeating-linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc), repeating-linear-gradient(45deg, #ccc 25%, white 25%, white 75%, #ccc 75%, #ccc);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+}
+
+.box-row {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.box {
+  border: 1px solid black;
+  padding: 16px 20px;
+  font-size: 16px;
+  background-color: white;
+}
+
+.box.half {
+  flex: 1;
+}
+
+.box.full {
+  width: 100%;
+}
+
+.blue-bg {
+  background-color: #0055ff;
+}
+
+.black-bg {
+  background-color: black;
+  color: white;
+}
+
+.black-bg p {
+  color: white;
+}
+
+/* How2Mama Specifics */
+.chapter-header {
+  background-color: black;
+  color: white;
+  padding: 16px 20px;
+  font-weight: bold;
+  border: 1px solid white;
+}
+
+.icon-box-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.icon-box {
+  border: 1px solid black;
+  padding: 24px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  background-color: white;
+}
+
+.icon-box-icon {
+  font-size: 37px;
+}
+
+.icon-box-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.icon-box-content strong {
+  font-size: 14px;
+}
+
+/* Book List Specifics */
+.book-box {
+  border: 1px solid black;
+  padding: 10px 16px;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+/* Mobile Adjustments */
 @media (max-width: 768px) {
-    .container {
-        padding: 30px 15px;
-        gap: 60px;
-
-    }
-
-    .top-links {
-        justify-content: center; /* Center buttons on smaller screens */
-    }
-
-    .footer {
-        flex-direction: column; /* Stack footer items vertically */
-        align-items: left; /* Center items */
-        text-align: left;
-        gap: 30px;
-    }
-
-    .footer-text {
-        flex-basis: auto; /* Reset basis */
-    }
-}
-
-/* Example: Mobile */
-@media (max-width: 480px) {
-     .container {
-        padding: 20px 10px;
-        gap: 40px;
-    }
-
-    .top-links {
-        gap: 10px; /* Reduce gap between buttons */
-
-    }
-
-    .link-button {
-        padding: 8px 15px;
-        font-size: 11px;
-    }
-
-    /* Adjust nav text gap for smaller screens */
-     .nav-line {
-         gap: 10px;
-     }
-
-    .footer {
-         gap: 20px;
-     }
-     .footer-text {
-        font-size: 9px;
-     }
-     .footer-logo {
-        max-width: 140px; /* Slightly smaller logo */
-     }
-}
-
-/* RESOURCES CSS */
-
-.resources-page {
-    display: flex;
+  #app-container {
     flex-direction: column;
-}
-
-/* Page Header */
-.page-header {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    gap: 0px;
-    margin: 40px; /* Add some space below top links */
-    margin-bottom: 20px;
-}
-
-.page-title-main.resources-title {
-    color: #D9262C;
-    font-size: clamp(36px, 6vw, 60px); /* Responsive font size */
-    font-weight: 900;
-    line-height: 1.2;
-}
-
-.page-description.resources-description {
-    font-size: 14px;
-    font-family: 'Mattone-regular';
-    max-width: 1000px; /* Limit width of description */
-    color: black;
-}
-
-/* Filter Buttons */
-.filter-buttons {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
-    justify-content: left; /* Center buttons */
-    gap: 12px; /* Space between buttons */
-    margin-left: 40px;
-    margin-top: 0px;
-
-}
-
-/* Make sure buttons have pointer cursor */
-.filter-buttons .link-button {
-cursor: pointer;}
-
-/* Resource Content Area */
-.resource-content {
-    display: flex;
-    flex-direction: column;
-    gap: 60px; /* Space between resource sections */
-    margin-left: 64px;
-    margin-right: 64px;
-    margin-top: 8px;
-
-}
-
-.resource-section {
-    display: flex;
-    flex-direction: column;
-    margin-top: 24px;
-
-    gap: 30px; /* Space between section header and card grids */
-}
-
-.section-header {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    gap: 8px;
-    margin-bottom: 10px;
-}
-
-.section-title {
-    color: #D9262C;
-    font-size: clamp(18px, 4vw, 24px); /* Responsive font size */
-    font-weight: 700;
-}
-
-.section-description {
-    font-size: 14px;
-    font-weight: 400;
-    color: black;
-    margin-bottom: 8px;
-}
-
-/* Card Grid Layout */
-.card-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px; /* Default gap between cards */
-    justify-content: left; /* Center cards within the grid */
-}
-
-/* Resource Card Styling */
-.resource-card {
-    display: flex;
-    flex-direction: column;
-    gap: 16px; /* Space between info, image, details */
-  background-color: #f9f9f9;   /* Optional light background for card */
-    padding: 15px; /* Optional padding inside card */
-    border-radius: 8px; /* Optional rounded corners */
-    /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); Optional subtle shadow */
-
-    /* Default to one column, basis adjusted by helper classes/media queries */
-    flex-basis: 100%; /* Start full width */
-    min-width: 220px; /* Prevent cards becoming too narrow */
-    max-width: 100%;
-    max-height: fit-content;
-}
-
-.card-info {
-     display: flex;
-     flex-direction: column;
-     /* Order info block first visually */
-     order: 1;
-}
-
-.card-image {
-    display: block; /* Remove extra space below image */
-    width: 100%; /* Make image fill card width */
-    max-width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Cover the area nicely if aspect ratio differs */
-    border-radius: 4px; /* Optional rounded corners for image */
-    /* Order image block second visually */
-    order: 2;
-}
-
-.card-details {
-     display: flex;
-     flex-direction: column;
-     gap: 8px; /* Space within details block */
-     /* Order details block third visually */
-     order: 3;
-
-}
-
-.card-details-friends {
-    display: flex;
-    flex-direction: column;
-    gap: 8px; /* Space within details block */
-    /* Order details block third visually */
-    order: 3;
-    align-items: center;
-
-}
-
-.card-year {
-    font-size: 12px;
-    font-weight: 400;
-    color: #555; /* Slightly muted color */
-}
-
-.card-title {
-    font-size: clamp(18px, 3vw, 26px); /* Responsive */
-    font-family: 'Mattone-black';
-    line-height: 1.3;
-    color: black;
-}
-
-.card-subtitle {
-    font-size: clamp(14px, 2.5vw, 18px);
-    font-family: 'Mattone-bold';
-    color: black;
-    line-height: 1.4;
-}
-
-
-.card-question {
-    font-size: clamp(12px, 2.5vw, 18px);
-    font-family: 'Mattone-bold';
-    color: #D9262C;
-    line-height: 1.4;
-}
-
-.card-author {
-    font-size: clamp(14px, 2.5vw, 18px);
-    font-family: 'Mattone-regular';
-    color: rgba(0, 0, 0, 0.557);
-    line-height: 1.4;
-    margin-top: 8px;
-}
-
-.card-description, .card-link, .card-added-by {
-    font-size: 14px;
-    font-family: 'Mattone-regular';
-    color: black;
-    line-height: 1.5;
-}
-
-.card-link {
-    /* Optional: Style links differently */
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-.card-added-by {
-    margin-top: auto; /* Push 'Added by' to bottom if card height varies */
-    padding-top: 8px;
-    color: #777; /* Muted color */
-}
-
-
-/* --- Grid Column Helpers & Responsive Adjustments --- */
-
-/* Default: Cards stack (1 column) - already set by flex-basis: 100% */
-
-/* Tablet: Adjust columns for grids */
-@media (min-width: 600px) {
-    /* Target grids meant for 2+ columns */
-    .card-grid.two-columns .resource-card,
-    .card-grid.three-columns .resource-card {
-        flex-basis: calc(50% - 15px); /* 2 columns (adjust gap calc) */
-        max-width: calc(50% - 15px);
-    }
-    /* Ensure one-column grids stay one column */
-     .card-grid.one-column .resource-card {
-        flex-basis: 100%;
-        max-width: 80%; /* Optional: don't let single cards get too wide */
-        margin-left: auto;
-        margin-right: auto;
-    }
-     .card-grid {
-        justify-content: space-around; /* Better spacing for fewer columns */
-    }
-}
-
-/* Desktop: Adjust columns for three-column grids */
-@media (min-width: 992px) {
-    .card-grid.three-columns .resource-card {
-        flex-basis: calc(33.333% - 20px); /* 3 columns (adjust gap calc) */
-        max-width: calc(33.333% - 20px);
-    }
-    /* Two column grids stay at 2 columns */
-     .card-grid.two-columns .resource-card {
-        flex-basis: calc(50% - 15px); /* 2 columns */
-        max-width: calc(50% - 15px);
-    }
-    .card-grid {
-         gap: 30px; /* Restore original gap maybe */
-         justify-content: center; /* Center again */
-    }
-    .card-grid.one-column .resource-card {
-        max-width: 70%; /* Further constrain single cards */
-    }
-}
-
-/*MACHINES CSS*/
-
-/* --- Machines Detail Page Styles --- */
-
-/* Page Hero (Blue Header) */
-.page-hero.machines-hero {
-    background-color: #2751F6;
-    color: white; /* Default text color for hero content */
-    padding-top:   0px; /* Space above top links */
-    padding-bottom: 40px; /* Space below hero text */
-}
-
-.container2 {
-    width: 100%;
-    /* Max width prevents it becoming too wide on large desktops */
-    max-width: 1440px; /* Adjust as needed */
-    margin: 0 auto; /* Center the container */
-    padding: 40px 20px; /* Add some padding (top/bottom, left/right) */
-    display: flex;
-    flex-direction: column;
-    gap: 0px; /* Space between main sections */
-    height: fit-content;
-}
-
-
-
-
-.hero-content-area {
-     /* Reusing .container class here for padding and max-width */
-     display: flex;
-     flex-direction: column;
-     gap: 0px; /* Space between top links and hero text */
-}
-
-
-.machines-hero .top-links {
-
-    padding-top: 0; 
-}
-
-.machines-hero .top-links .link-button {
-    background-color: transparent; 
-    color: white; 
-    outline: 1px solid white; 
-}
-
-.machines-hero .top-links .link-button:hover {
-     background-color: rgba(255, 255, 255, 0.15);
-     color: white;
-}
-
-.machines-hero .top-links .link-button.disabled {
-    outline-color: rgba(255, 255, 255, 0.4); 
-    opacity: 0.7;
-}
-
-.hero-text {
-    padding-left: 0; 
-}
-
-.hero-title {
-    font-size: clamp(36px, 6vw, 60px);
-    font-family: 'Mattone-black';
-    line-height: 1.2;
-    margin-bottom: 8px; 
-}
-
-.hero-description {
-    font-size: 12px;
-    font-weight: 400;
-    max-width: 577px; 
-    line-height: 1.5;
-}
-
-.project-detail-section {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px; 
-}
-
-.project-header {
-    padding-bottom: 8px;
-}
-
-.project-title {
-    font-size: clamp(22px, 4vw, 26px); /* Responsive */
-    font-weight: 700;
-    color: black;
-    line-height: 1.3;
-}
-
-.project-subtitle {
-    font-size: clamp(16px, 3vw, 18px);
-    font-weight: 700; /* Was bold in original */
-    color: black;
-    line-height: 1.4;
-    margin-top: 4px;
-}
-
-
-/* Project Content Grid (Image | Info | Files) */
-.project-content-grid {
-    display: flex;
-    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
-    gap: 32px; /* Gap between columns */
-}
-
-/* Styling for the columns */
-.project-image-column,
-.project-info-column,
-.project-files-column {
-    flex: 1 1 280px; /* Allow growing/shrinking, base width ~280px before wrapping */
-    min-width: 250px; /* Prevent columns getting too narrow */
-    display: flex;
-    flex-direction: column;
-    gap: 12px; /* Space between title and content within column */
-}
-
-.project-image-column img {
-    display: block;
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    max-width: 100%;
-    border-radius: 4px; /* Optional */
-    object-fit: cover; /* Optional: if fixed height is desired */
-    /* max-height: 300px; */ /* Optional: If you want to limit height like original */
-}
-
-.column-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: black;
-    margin-bottom: 4px; /* Small space below column title */
-}
-
-.project-info-text {
-    font-size: 12px;
-    font-weight: 400;
-    color: black;
-    line-height: 1.6;
-}
-
-.project-files-list {
-    display: flex;
-    flex-wrap: wrap; /* Allow file buttons to wrap */
-    gap: 8px; /* Space between file buttons */
-    align-content: flex-start; /* Align wrapped items to the top */
-}
-
-/* Ensure file links use the button style */
-.project-files-list .link-button {
-    /* Styles are inherited from base .link-button */
-    /* Add specific overrides if needed */
-    cursor: pointer; /* Make it clear they are clickable */
-    text-decoration: none; /* Remove underline if it's an <a> */
-}
-
-/* --- Responsive Adjustments --- */
-
-@media (max-width: 768px) {
-    .hero-content-area {
-        gap: 30px;
-    }
-     /* Center top links maybe? */
-    .machines-hero .top-links {
-         justify-content: center;
-    }
-
-    .project-content-grid {
-        gap: 40px; /* Increase gap slightly when stacked */
-    }
-
-    .project-image-column,
-    .project-info-column,
-    .project-files-column {
-        flex-basis: 100%; /* Stack columns */
-        min-width: unset; /* Remove min-width when stacked */
-    }
-}
-
-@media (max-width: 480px) {
-     .page-hero.machines-hero {
-        padding-top: 15px;
-        padding-bottom: 30px;
-    }
-     .hero-content-area {
-        gap: 20px;
-    }
-    .project-detail-section {
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
-     .project-content-grid {
-        gap: 30px;
-        
-        
-    }
-}
-
-.tothetop {
-    width: auto; /* Let content determine width */
-    width: 60px; /* Minimum width */
-    height: 60px;
-    padding: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-    font-size: 40px; /* Slightly smaller base size */
-    font-family: 'Mattone-regular'; /* Or system emoji font */
-    outline: 1px black solid;
-    color: black;
-    transition: 300ms ease-in-out;
+  }
+
+  #fade-overlay {
+    left: 0;
+    width: 100vw;
+  }
+
+  /* On mobile, sidebar takes full screen until a link is clicked */
+  #sidebar {
+    width: 100vw;
+    min-width: 100vw;
+    height: 100vh;
+    border-right: none;
+    z-index: 100;
+  }
+
+  #content-area {
+    display: none;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 200;
     background-color: white;
+  }
 
-    position: fixed; 
-    bottom: 120px;
-    right: 40px; 
-
-}
-
-
-.tothetop:hover {
-    color: #D9262C;
-}
-
-/*how to mama */
-
-
-.guide-page {
-    /* Using .container for padding/max-width */
-    display: flex;
+  .box-row {
     flex-direction: column;
-    gap: 40px; /* Default gap between major sections */
+  }
+
+  .icon-box-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-img,
+  .hero-img-contain {
+    height: 300px;
+  }
 }
 
-/* Intro Section */
-.page-intro-section {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+/* Dark Mode Overrides */
+body.dark-mode {
+  background-color: black;
+  color: white;
 }
 
-.guide-main-title {
-    color: #2751F6; /* Blue */
-    font-size: clamp(36px, 6vw, 60px);
-    font-weight: 900;
-    line-height: 1.2;
+body.dark-mode #sidebar {
+  background-color: black;
+  border-right: 1px solid white;
 }
 
-.intro-grid {
-    display: flex;
-    flex-wrap: wrap; /* Allow columns to wrap */
-    gap: 48px; /* Gap between text and widgets column */
+body.dark-mode .nav-btn,
+body.dark-mode .sidebar-header,
+body.dark-mode .sidebar-footer {
+  background-color: black;
+  color: white;
+  border-color: white;
 }
 
-.intro-grid2 {
-    display: flex;
-    flex-direction: row;
-    gap: 48px; /* Gap between text and widgets column */
+body.dark-mode .nav-btn:hover {
+  background-color: #333;
 }
 
-.intro-text-column {
-    flex: 2 1 500px; /* Allow text to take more space, base width ~500px */
-    font-size: 16px;
-    font-family: 'Mattone-regular';
-    line-height: 1.6;
+body.dark-mode .header-link {
+  color: white;
 }
 
-.intro-widgets-column {
-    flex: 1 1 400px; /* Base width ~400px */
-    display: flex;
-    flex-direction: column;
-    gap: 24px; /* Space between glossary and suggestion box */
-    min-width: 280px; /* Prevent getting too narrow */
+body.dark-mode #content-area {
+  background-color: black;
 }
 
-/* Widget Box Styles (Base, Glossary, Suggestion) */
-.widget-box {
-    padding: 15px 20px;
-    border-radius: 10px;
+body.dark-mode .content-section {
+  background-color: black;
 }
 
-.glossary-box {
-    background-color: #F6F6F6; /* Light grey */
-    display: table-row;
-    align-items: flex; /* Align label and text to top */
-    gap: 20px; /* Reduced gap from original 86px */
+body.dark-mode .box {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
 }
 
-.glossary-label {
-    color: #D9262C; /* Red */
-    font-size: 12px;
-    font-weight: 700;
-    flex-shrink: 0; /* Prevent label from shrinking */
-    padding-top: 2px; /* Align text baseline roughly */
+body.dark-mode .hero-img,
+body.dark-mode .hero-img-contain,
+body.dark-mode .book-box {
+  border: 1px solid white;
+  background-color: black;
+  color: white;
 }
 
-.glossary-box p {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.5;
-    flex-grow: 1;
+body.dark-mode .back-bar,
+body.dark-mode .chapter-header {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
 }
 
-.suggestion-box {
-    outline: 1px dashed black;
-    outline-offset: -1px;
-    border-radius: 20px; /* Different radius */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: fit-content;
-
+body.dark-mode .back-to-home-desk {
+  color: black;
 }
 
-.suggestion-content {
-     display: flex;
-     flex-direction: column;
-     gap: 8px;
+/* Invert the black arrows in back bar/buttons since they are SVGs with no dark mode 
+body.dark-mode .back-icon,
+body.dark-mode .nav-icon:not(.blue-square):not(.catalogue-icon) {
+  Some nav-icons are JPGs, so wait, I shouldn't invert JPGs! 
+}*/
+
+body.dark-mode .back-icon {
+  filter: invert(1);
 }
 
-.suggestion-box-title {
-    font-size: 14px;
-    font-weight: 700;
+body.dark-mode .icon-box {
+  border: 1px solid white;
+  background-color: black;
 }
 
-.suggestion-box-text {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.5;
+body.dark-mode #fade-overlay {
+  background-color: black;
 }
 
-.suggestion-box-actions {
-    display: flex;
-    flex-wrap: wrap; /* Allow button/link to wrap */
-    justify-content: space-left; /* Space out link and button */
-    align-items: center;
-    gap: 16px; /* Gap if they wrap */
-    margin-top: 8px; /* Add some space above actions */
+body.dark-mode {
+  cursor: url('cursor-hearth-darkmode.svg'), auto !important;
 }
 
-.video-guide-link {
-    color: #2751F6; /* Blue */
-    font-size: 12px;
-    font-weight: 400;
-    text-decoration: underline;
+body.dark-mode a,
+body.dark-mode button,
+body.dark-mode .nav-btn,
+body.dark-mode .back-bar,
+body.dark-mode .back-to-home-desk,
+body.dark-mode [style*="cursor: pointer"] {
+  cursor: url('cursor-hearth-darkmode.svg'), pointer !important;
 }
 
-.suggestion-box-actions .link-button {
-    flex-grow: 1; /* Allow button to take space */
-    max-width: 250px; /* Limit button width */
-    text-align: center; /* Center text in button */
+body.dark-mode a *,
+body.dark-mode button *,
+body.dark-mode .nav-btn *,
+body.dark-mode .back-bar *,
+body.dark-mode .back-to-home-desk *,
+body.dark-mode [style*="cursor: pointer"] * {
+  cursor: url('cursor-hearth-darkmode.svg'), pointer !important;
 }
 
-
-/* Chapter Navigation */
-.chapter-nav-section {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 20px; /* Add space above chapter nav */
+.download-btn {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.chapters-nav-title {
-    font-size: 12px;
-    font-weight: 400;
-    color: black;
-
+.download-btn:hover {
+  background-color: black !important;
+  color: white !important;
 }
-
-.chapter-nav-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: center; /* Vertically align buttons if they wrap */
-
-}
-
-/* Main Guide Content */
-.guide-main-content {
-    display: flex;
-    flex-direction: column;
-    gap: 60px; /* Space between chapters */
-    margin-top: 40px; /* Space below chapter nav */
-}
-
-.guide-chapter {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    border-top: 1px dashed #ccc; /* Optional separator between chapters */
-    padding-top: 40px;
-}
-.guide-main-content .guide-chapter:first-child {
-    border-top: none; /* Remove border from first chapter */
-    padding-top: 0;
-}
-
-/* .chapter-header {
-    /* Styles for chapter header if needed } */
-
-.chapter-breadcrumb {
-    font-size: 18px; /* Was 17.99px */
-    font-family: 'Mattone-bold';
-    color: black;
-    word-wrap: break-word;
-}
-
-.chapter-content-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: flex-start; /* Align tops of columns */
-}
-
-.chapter-text-column {
-    flex: 1 1 500px; /* Base width ~500px */
-    display: flex;
-    flex-direction: column;
-    gap: 16px; /* Space between info boxes */
-    min-width: 280px;
-}
-
-.chapter-info-box {
-    background: #F6F6F6;
-    padding: 15px 20px;
-    border-radius: 10px;
-    font-size: 12px;
-    font-family: 'Mattone-regular';
-    line-height: 1.6;
-}
-
-.chapter-image-column {
-    flex: 1 1 400px; /* Base width ~400px */
-    min-width: 280px;
-}
-
-.chapter-image-column img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    border-radius: 10px;
-    border: 1px solid black; /* As per original style */
-}
-
-
-/* Tips Section */
-.tips-section {
-    margin-top: 40px; /* Space above tips section */
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.tips-section-title {
-    font-size: 18px; /* Was 17.99px */
-    font-family: 'Mattone-regular';
-    color: black;
-}
-
-.tips-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    margin-bottom: 32px; /* Space before final suggestion box */
-}
-
-.imgtiles {
-
-    max-block-size: 200px;
-
-}
-
-.tip-card {
-    background: #F6F6F6;
-    border-radius: 20px;
-    padding: 24px 20px;
-    display: flex;
-    align-items: center; /* Align icon and text to top */
-    gap: 20px; /* Reduced gap from original 40px */
-    flex: 1 1 300px; /* Base width ~300px for 3 columns initially */
-    min-width: 260px;
-}
-
-.tip-icon {
-    font-size: 37px; /* Keep original large icon size */
-    line-height: 1; /* Adjust line height for icon */
-    flex-shrink: 0;
-    width: 40px; /* Give icon some space */
-    text-align: center;
-}
-
-.tip-content {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    flex-grow: 1;
-}
-
-.tip-title {
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.tip-text {
-    font-size: 12px;
-    font-family: 'Mattone-regular';
-    line-height: 1.5;
-}
-
-.tip-author {
-    font-size: 10px;
-    font-weight: 400; /* Adjusted based on some examples */
-    color: #555; /* Slightly muted */
-    margin-top: 4px;
-}
-/* Handle bold author where needed */
-.tip-card:nth-child(3) .tip-author { /* Example: Target 3rd tip card */
-    font-weight: 700;
-    color: #555;  /* Restore color if needed */
-}
-
-.tips-suggestion-box {
-    /* Styles inherited from .suggestion-box */
-    /* Add specific overrides if needed */
-    max-width: 400px; /* Limit width maybe */
-    margin-left: auto; /* Example alignment */
-    margin-right: auto;
-}
-
-/* --- Responsive Adjustments --- */
-
-@media (max-width: 992px) {
-    /* Stack intro columns */
-    .intro-grid {
-        gap: 30px;
-    }
-    .intro-text-column,
-    .intro-widgets-column {
-        flex-basis: 100%;
-        min-width: unset;
-    }
-
-    /* Stack chapter content columns */
-    .chapter-content-grid {
-        gap: 30px;
-    }
-     .chapter-text-column,
-     .chapter-image-column {
-        flex-basis: 100%;
-        min-width: unset;
-     }
-     /* Optional: put image first on mobile? */
-     .chapter-image-column {
-        order: -1;
-     }
-
-    /* Adjust tips grid to 2 columns */
-     .tip-card {
-         flex-basis: calc(50% - 16px); /* Adjust calc based on gap */
-     }
-}
-
-@media (max-width: 600px) {
-    .guide-page {
-        gap: 30px;
-    }
-     /* Stack tip cards to 1 column */
-     .tip-card {
-         flex-basis: 100%;
-     }
-     .suggestion-box-actions {
-         flex-direction: column; /* Stack actions vertically */
-         align-items: stretch; /* Make button full width */
-         text-align: center;
-     }
-     .tips-suggestion-box {
-        max-width: 100%;
-     }
-}
- 

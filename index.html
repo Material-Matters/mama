@@ -1,59 +1,655 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Material Matters</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material Matters - Bolzano</title>
+  <link rel="icon" href="favicon.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="style.css">
+  <script src="p5_libraries_and_sketch/p5.min.js"></script>
+  <script src="p5_libraries_and_sketch/p5.sound.min.js"></script>
+  <script src="p5_libraries_and_sketch/sketch.js"></script>
+  <script src="script.js" defer></script>
+</head>
 
-
-    <script src="libraries/p5.min.js"></script>
-    <script src="libraries/p5.sound.min.js"></script>
-
-
-
-
- 
-    </head>
 <body>
-<script src="sketch.js" style="z-index: -1;"></script>
-
-    <div class="container">
-        <header class="top-links">
-            <div class="link-button-disabled">❤️</div>
-          <a href="mailto:materialmattersbz@gmail.com">  <div class="link-button">materialmattersbz@gmail.com</div> </a>
-             <a href="https://www.instagram.com/mama.unibz/" target="_blank"> <div class="link-button"> INSTAGRAM  </div> </a> 
-             <a href="https://www.youtube.com/@MaterialMattersBZ" target="_blank"> <div class="link-button">  YOUTUBE </div> </a>  
-        </header>
-
-        <nav class="page-navigation" aria-label="Page Sections">
-       <div class="nav-line">
-        
-                <a href="us.html"> <span class="nav-text" style="z-index: -2;">/ ABOUT-US</span> </a>
-                <a href="resources.html"> <span class="nav-text">/ RESOURCES</span>   </a>
-                 <a href="https://mamacatalogue.com/" target="_blank"> <span class="nav-text">/ CATALOGUE</span>   </a>
-                <a href="iniatives.html"> <span class="nav-text">/ INITIATIVES</span> </a>
-                <a href="how2mama.html">  <span class="nav-text-blue">/ HOW-2-MAMA</span>    </a> 
-                <a href="machines.html"> <span class="nav-text-blue">/ MACHINES</span>     </a> 
-
+  <div id="fade-overlay"></div>
+  <div id="app-container">
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <img src="svgs/top-homepage.svg" alt="Heart Logo" class="heart-logo" id="dark-mode-toggle"
+          style="cursor: pointer;" data-dark-src="svgs/top-homepage-darkmode.svg">
+        <div class="header-links">
+          <a href="https://www.instagram.com/mama.unibz/" class="header-link" target="_blank"> INSTAGRAM ↗</a>
+          <a href="https://www.youtube.com/@MaterialMattersBZ" class="header-link" target="_blank">YOUTUBE ↗</a>
+        </div>
+        <h1>Material Matters - Bolzano</h1>
+        <h2>Partner of Material FAM South Tyrol</h2>
+      </div>
+      <ul class="nav-list">
+        <li><a href="#" data-target="project-section" class="nav-btn">
+            <div class="nav-text">
+              <strong>The project</strong>
+              <span>Why and how we ended up opening a material bank in South Tyrol.</span>
             </div>
-
-
-        </nav>
-
-        <footer class="footer">
-            <div class="footer-text">
-                Trash is a condition.<br/>
-                Material Matters! is a student initiative carried out inside the Free University of Bolzano.  <br/>
-                Credits: FONT 'Mattone' : Nunzio Mazzaferro, Collletttivo; 
-                WebDesign and coding: <a href="https://www.frizzanteo.com" class="link-button-small" >FRIZZANTEO</a>; <br/>Logo: Francesco Desimine
+          </a></li>
+        <li><a href="#" data-target="squad-section" class="nav-btn">
+            <div class="nav-text">
+              <strong>The squad</strong>
+              <span>Discover who is (and was) behind all of this.</span>
             </div>
-            <img class="footer-logo" src="images/mama-logo-bw.png" alt="Material Matters Logo" /> 
-        </footer>
+          </a></li>
+        <li><a href="#" data-target="cave-section" class="nav-btn with-icon">
+            <img src="Resources/images/cave 1.webp" alt="Cave" class="nav-icon">
+            <div class="nav-text">
+              <strong>CAVE</strong>
+              <span>Take what you need, gift cool materials</span>
+            </div>
+          </a></li>
+        <li><a href="https://mamacatalogue.com/" target="_blank" class="nav-btn with-icon">
+            <img src="svgs/cupido.svg" alt="Catalogue" class="nav-icon catalogue-icon">
+            <div class="nav-text">
+              <strong style="text-decoration: underline;">CATALOGUE ↗</strong>
+              <span>Find out what we have on our catalogue web app</span>
+            </div>
+          </a></li>
+        <li><a href="#" data-target="mamabox-section" class="nav-btn with-icon">
+            <img src="Resources/images/mamabox 1.webp" alt="MaMaBox" class="nav-icon">
+            <div class="nav-text">
+              <strong>MaMaBox</strong>
+              <span>Our mailbox but for materials.</span>
+            </div>
+          </a></li>
+        <li><a href="#" data-target="lillelys-section" class="nav-btn with-icon">
+            <img src="Resources/images/lillelys 1.webp" alt="Lille Lys" class="nav-icon">
+            <div class="nav-text">
+              <strong>LILLE LYS</strong>
+              <span>Carry around stuff in the city</span>
+            </div>
+          </a></li>
+        <li><a href="#" data-target="mamabike-section" class="nav-btn with-icon">
+            <img src="Resources/images/mamabyke 1.webp" alt="MaMa Bike" class="nav-icon">
+            <div class="nav-text">
+              <strong>MaMa Bike</strong>
+              <span>A free-to-use bike in case you need one.</span>
+            </div>
+          </a></li>
+        <li><a href="#" data-target="mamakart-section" class="nav-btn with-icon">
+            <img src="Resources/images/mamakarts 1.webp" alt="MaMa Kart" class="nav-icon">
+            <div class="nav-text">
+              <strong>MaMa Kart</strong>
+              <span>Stackable alluminium structure. They have weels too</span>
+            </div>
+          </a></li>
+        <li><a href="#" data-target="regaloregal-section" class="nav-btn with-icon">
+            <img src="Resources/images/regaloregal 1.webp" alt="RegaloRegal" class="nav-icon">
+            <div class="nav-text">
+              <strong>RegaloRegal</strong>
+              <span>Exchange shelf for secondhand, inside UniBz</span>
+            </div>
+          </a></li>
+        <li><a href="#" data-target="how2mama-section" class="nav-btn with-icon">
+            <img src="svgs/how2mamablueforsidebar.svg" alt="How2Mama" class="nav-icon">
+            <div class="nav-text">
+              <strong>HOW-2-MAMA</strong>
+              <span>A step2step guide that helps you open a similar initiative like ours</span>
+            </div>
+          </a></li>
+        <li><a href="#" data-target="resources-section" class="nav-btn with-icon">
+            <img src="Resources/images/resource.jpg" alt="Resources" class="nav-icon">
+            <div class="nav-text">
+              <strong>Resources</strong>
+              <span>What we read and watch to make what we do</span>
+            </div>
+          </a></li>
+        <li><a href="#" data-target="friends-section" class="nav-btn with-icon">
+            <img src="Resources/images/frecciiiia.jpg" alt="Friends" class="nav-icon" style="object-fit: contain;">
+            <div class="nav-text">
+              <strong>Friends</strong>
+              <span>People and initiatives we like to collaborate with</span>
+            </div>
+          </a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <p>Trash is a condition.</p>
+        <p>This website tries to reduce CO2 emissions that result from internet browsing. Use the Dark Mode to reduce
+          energy consumption on your device. Find more at <a href="https://solar.lowtechmagazine.com/"
+            style="color:inherit">lowtechmagazine</a></p>
+        <img src="svgs/mamalogoblack.svg" alt="Mama logo text" class="footer-logo"
+          data-dark-src="svgs/mamalogowhite.svg">
+        <p><a href="mailto:mama.bozen@hotmail.com" style="color:#D9262C;">mama.bozen@hotmail.com</a></p>
+        <p>website credit : <a href="https://frizzanteo.com" target="_blank">frizzanteo</a> </p>
+        <p>logo design: Francesco Desimine</p>
+      </div>
+    </nav>
+    <main id="content-area">
 
-    </div>
+      <section id="p5-container" class="active-section"></section>
 
+      <!-- Project -->
+      <section id="project-section" class="content-section">
+        <div class="back-bar desk-only">
+          <button class="back-to-home-desk"><img src="svgs/backbutton.svg" alt="Back Icon" class="back-icon">
+            BACK</button>
+        </div>
+        <img src="Resources/images/mamasegnale.webp" alt="Material Matters" class="hero-img">
+        <div class="box-row">
+          <div class="box half">
+            <strong>What is Material Matters?</strong><br> <br>
+            Material Matters is a project born in 2024 during the course "Design and Production" by the Prof. Aart van
+            Bezooijen. Together, students passionated about material reuse run the initiative since then.
+          </div>
+          <div class="box half">
+            MaMa ♡ Material Matters is récupérathèque and secondhand material bank of unibz, part of the Fédération des
+            Récupérathèques.<br><br>
+            The idea is to approach the topic of “WASTE” from all the possible directions: the material ones but also
+            from a conceptual point of view.
+          </div>
+        </div>
+        <div class="box full">
+          <strong>Ok, but what is a material bank?</strong><br><br>
+          A material bank is a place where second hand materials, that are still in good conditions are recovered. The
+          materials are not only collected and catalogued, but also activated during Festivals and sustainable
+          production workshops.
+        </div>
+        <div class="box-row">
+          <div class="box half">
+            <strong>A list of workshop we have organized:</strong><br>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+              <li>2025, Sustainability Festival, UniBz, Zero Impact Agenda</li>
+              <li>2025, Sustainability Festival, UniBz, Tote Lab: Unique and sustainable bags</li>
+              <li>2024, UniBZ, Workshop, Till Wolfer, XYZ Karts</li>
+              <li>2024, UniBZ, Workshop, Refunk, Experimenting with reused object</li>
+              <li>2024, Fashion for Future, REX Bressanone, Sewing bags Workshops</li>
+            </ul>
+          </div>
+          <div class="box half">
+            <strong>Lectures and conferences we have participated in :</strong><br>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+              <li>2025, Presenting the project inside the course "Laboratorio di Eco Social Design" - Cerri, Vacca -
+                University of Florence</li>
+              <li>2025, Paper presentation at the conference "HOPE: reclaming the future", by Design and by Disaster,
+                UniBz</li>
+              <li>2024, Sharing our discovery with the HFBK University in an online lecture</li>
+            </ul>
+          </div>
+        </div>
+        <div class="box full">
+          <strong>PRESS :</strong><br>
+          <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>2025, TV33, "In UniBz la musica dal riuso"</li>
+            <li>2025, Alto Adige, "Unibz, Creatività e riuso"</li>
+            <li>2025, Corriere del Trentino,"MaMa Material Matters, A Bolzano riciclo creativo"</li>
+            <li>2025, Land Südtirol - Youtube, "Konsumstrategien - 2. Teil"</li>
+            <li>2025, Ufficio Stampa Provincia Autonoma di Bolzano, "Tabula Rasa: giovani protagonisti sul territorio"
+            </li>
+            <li>2024, Alto Adige, "Riuso e Upcycling, 500 presenze all'epilogo"</li>
+          </ul>
+        </div>
+        <div class="box full">
+          <strong>COLLABORATIONS</strong><br>
+          <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>2025, Guests of Radio Tandem podcast: you can listen to it from this link</li>
+            <li>2025, Via Dante Collective, scaffholding design for the "Edicola Takeover" project</li>
+          </ul>
+        </div>
+      </section>
 
+      <!-- Squad -->
+      <section id="squad-section" class="content-section">
+        <div class="back-bar desk-only">
+          <button class="back-to-home-desk"><img src="svgs/backbutton.svg" alt="Back Icon" class="back-icon">
+            BACK</button>
+        </div>
+        <div class="checker-bg hero-img"></div>
+        <div class="box-row">
+          <div class="box half">
+            <strong>Active members:</strong><br><br>
+            Aart van Bezooijen <br> Francesco Desimine <br> Leonardo ---- <br> Samuele --- <br> Irene ---- <br> Joela
+            ...<br> Maryam ...
+            <br><br>
+            You can reach out the team on Instagram or for serious stuff at: <a href="mailto:mama.bozen@hotmail.com"
+              style="color:#D9262C;">mama.bozen@hotmail.com</a>
+          </div>
+          <div class="box half">
+            <strong>And a BIG thank you to the ones that carried out the project troughout the years ♡ </strong>
+            <br><br>
+            Aart van Bezooijen<br>
+            Emanuele Signorini<br>
+            Maximilian Carl Stahl<br>
+            Francesco Desimine<br>
+            Matteo Antonazzo<br>
+            Barbara Janina Koniecka<br>
+            Federica Kozma<br>
+            Shirin Kiefer<br>
+            Pietro Rista<br>
+            Konrad Freyer<br>
+            Karola Ujlaki Orsolya<br>
+            Masha Zorina<br>
+            Anna Gagliotti<br>
+            Matteo Dal Pra<br>
+            Alice Peruzzo<br>
+            Margherita Poli<br>
+            Marianna Franceschi<br>
+            Allegra D'Achille
+          </div>
+        </div>
+      </section>
+
+      <!-- CAVE -->
+      <section id="cave-section" class="content-section">
+        <div class="back-bar desk-only">
+          <button class="back-to-home-desk"><img src="svgs/backbutton.svg" alt="Back Icon" class="back-icon">
+            BACK</button>
+        </div>
+        <img src="Resources/images/cave 1.webp" alt="Cave" class="hero-img">
+        <div class="box-row">
+          <div class="box half">
+            The cave is accessible only on appointment. A MaMa member will guide you in the depths of UniBz to help you
+            find what you need. To take one, DM us on Instagram.<br><br>
+            The CAVE is our core businesses . Here we store all the materials we find that are still in good conditions.
+            They are available for free to whoever needs them.
+          </div>
+          <div class="box half">
+            The CAVE works on a exchange format, therefore if you have materials that are still in good conditions you
+            can check with our team weather you can donate them or not.<br>
+            We DO NOT accept:<br>
+            <ul style="margin-left: 20px;">
+              <li>Glass</li>
+              <li>Clothes</li>
+              <li>Materials with an expiry date</li>
+              <li>BioMaterials</li>
+            </ul>
+            <br>
+            In the cave you can find various materials in very different formats.<br>
+            To see what we have, you can access the catalogue from the sidebar.
+          </div>
+        </div>
+      </section>
+
+      <!-- Catalogue -->
+      <section id="catalogue-section" class="content-section">
+        <div class="back-bar desk-only">
+          <button class="back-to-home-desk"><img src="svgs/backbutton.svg" alt="Back Icon" class="back-icon">
+            BACK</button>
+        </div>
+        <div class="box full">
+          <strong>CATALOGUE</strong><br><br>
+          Please check our web app to find out what we have.
+        </div>
+      </section>
+
+      <!-- MaMaBox -->
+      <section id="mamabox-section" class="content-section">
+        <div class="back-bar desk-only">
+          <button class="back-to-home-desk"><img src="svgs/backbutton.svg" alt="Back Icon" class="back-icon">
+            BACK</button>
+        </div>
+        <img src="Resources/images/mamabox 1.webp" alt="MaMaBox" class="hero-img">
+        <div class="box-row">
+          <div class="box half">
+            From an old project, we have created a box capable of storing a bunch of material. Is our mailbox, where
+            people can open it and leave or retrieve material, accordingly with the team.<br><br>
+            We accept donation only materials in a good state.<br>
+            We do not accept: glass, clothes, other dangerous materials or biomaterials.
+          </div>
+          <div class="box half">
+            You can find it in front of the C4.03 room.
+          </div>
+        </div>
+      </section>
+
+      <!-- Lille Lys -->
+      <section id="lillelys-section" class="content-section">
+        <div class="back-bar desk-only">
+          <button class="back-to-home-desk"><img src="svgs/backbutton.svg" alt="Back Icon" class="back-icon">
+            BACK</button>
+        </div>
+        <img src="Resources/images/lillelys 1.webp" alt="Lille Lys" class="hero-img-contain">
+        <div class="box-row">
+          <div class="box half">
+            A project developed to help people move materials or entire projects around the town. Made out of alluminium
+            frame, and assmbled with XYZ joints, LILLE LYS is a powerfull tool, easy to replicate even with other
+            materials like wood.<br><br>
+            Rent period: 1 day
+          </div>
+          <div class="box half">
+            The project realized by Hannes Simon Decker and Francesco Desimine can be replicated (file below). The
+            authors decline every responsibility for bad construction or misuse of the tool.<br> <br>Maximum load: 60 KG
+          </div>
+        </div>
+        <div class="box full blue-bg" style="color: white; font-weight: bold; cursor: pointer;">
+          PROJECT FILES
+        </div>
+        <a href="Resources/lillelys_downloadables/lillelys.glb" download class="box full download-btn"
+          style="font-weight: bold; cursor: pointer;">
+          3D FILE DOWNLOAD
+        </a>
+        <a href="Resources/lillelys_downloadables/Trailer_Francesco_Hannes_documentation.pdf" download target="_blank"
+          class="box full download-btn" style="font-weight: bold; cursor: pointer;">
+          BLUEPRINT DOWNLOAD
+        </a>
+      </section>
+
+      <!-- MaMa Bike -->
+      <section id="mamabike-section" class="content-section">
+        <div class="back-bar desk-only">
+          <button class="back-to-home-desk"><img src="svgs/backbutton.svg" alt="Back Icon" class="back-icon">
+            BACK</button>
+        </div>
+        <img src="Resources/images/mamabyke 1.webp" alt="MaMa Bike" class="hero-img">
+        <div class="box-row">
+          <div class="box half">
+            During the brainstorm of the project we discovered that students missed a way to move materials around.
+            That's why we recovered an old bike, fixed it and made it available at the unibz FabLab.
+          </div>
+          <div class="box half">
+            Ask the team and rent it for a day.<br><br>
+            You can find it at the UniBz FabLab.
+          </div>
+        </div>
+      </section>
+
+      <!-- MaMa Kart -->
+      <section id="mamakart-section" class="content-section">
+        <div class="back-bar desk-only">
+          <button class="back-to-home-desk"><img src="svgs/backbutton.svg" alt="Back Icon" class="back-icon">
+            BACK</button>
+        </div>
+        <img src="Resources/images/mamakarts 1.webp" alt="MaMa Kart" class="hero-img-contain">
+        <div class="box-row">
+          <div class="box half">
+            Togeether with Till Wolfer, part of N55, we designed 3 transformable karts, using aluminium profile and a
+            joint system called "XYZ". Student can use them to move material inside the university. They fit in the
+            elevator, so they are suitable to move material down in to the workshop or around the University.
+          </div>
+          <div class="box half">
+            To rent them, ask the team on Instagram.
+          </div>
+        </div>
+      </section>
+
+      <!-- RegaloRegal -->
+      <section id="regaloregal-section" class="content-section">
+        <div class="back-bar desk-only">
+          <button class="back-to-home-desk"><img src="svgs/backbutton.svg" alt="Back Icon" class="back-icon">
+            BACK</button>
+        </div>
+        <img src="Resources/images/regaloregal 1.webp" alt="RegaloRegal" class="hero-img">
+        <div class="box-row">
+          <div class="box half">
+            Established before the creation of MaMa, Regalo Regal allow people two exchange a wide range of objects that
+            are still usable.<br><br>
+            Time by time, we rearrange the items and tidy up the library. We don’t manage it directly, we just try to
+            keep it in a good state when we have time!
+          </div>
+          <div class="box half">
+            Ground floor of the C Building, corridor<br><br>
+            Is a good practice to leave only items that are still usable, working and generally in a good condition.
+            Give it a chance next time you pass by :D
+          </div>
+        </div>
+      </section>
+
+      <!-- How2Mama -->
+      <section id="how2mama-section" class="content-section">
+        <div class="back-bar desk-only">
+          <button class="back-to-home-desk"><img src="svgs/backbutton.svg" alt="Back Icon" class="back-icon">
+            BACK</button>
+        </div>
+        <div class="chapter-header">CHAPTER 0</div>
+        <div class="box full">We are glad to know that someone want to save some materials! The aim of this page is to
+          give you as much information as possible to help you open your own material bank, inside your University or
+          wherever you like. This web-page is divided in chapters: by following them, step-2-step, you will be able to
+          set up successfully your material bank. You will find in each chapter a bunch of tips, be sure to read them:
+          they were written by people who already run a material based initiative.</div>
+
+        <div class="chapter-header">CHAPTER 1</div>
+        <div class="box full">Having enough space is a crucial point for establishing a Material Bank. We suggest to
+          have at least 20 to 25 square meter of space at least. Is important that the space is or can be equipped with
+          scaffholding. The more easy to access the space is, the better. It can happen that some spaces inside the
+          building are not used anymore: note them down and propose them when you meet with who is in charge. In fact,
+          we suggest to check space availabilities with the workshops chief or your University to ensure that everything
+          comply to the regulation.</div>
+        <div class="box full">A material bank is Is the physical spaces where people can go to get secondhand materials
+          for their project.</div>
+        <div class="box full">There should be one person in charge of the safety of the building and workshops spaces,
+          find out who is and establish a collaboration, they will play a key role in helping you when needed.</div>
+        <div class="icon-box-row">
+          <div class="icon-box">
+            <span class="icon-box-icon">⚠️</span>
+            <div class="icon-box-content"><strong>SAFETY</strong>Check if the space you pick comply with safety
+              regulation.</div>
+          </div>
+          <div class="icon-box">
+            <span class="icon-box-icon">🧯</span>
+            <div class="icon-box-content"><strong>FIRE HAZARD</strong>Make sure to have fire extinguisher, especially
+              near inflammable materials.</div>
+          </div>
+        </div>
+
+        <div class="chapter-header">CHAPTER 2</div>
+        <div class="box full">Once you understand that there is a possible space elegible for the Material Bank, you
+          should start looking for people, engaged one. The first phase will require time and determination so people
+          that believe in the project are fundamental. The number of people you should recruit vary on how big the
+          material bank will be. To gather people around the initiative is very important to have a recognizible
+          Identity, but we will in depth of this aspect in CHAPTER 6.</div>
+        <div class="icon-box-row" style="flex-wrap: wrap;">
+          <div class="icon-box">
+            <span class="icon-box-icon">🧑‍🏫</span>
+            <div class="icon-box-content"><strong>ACCADEMIC SUPPORT</strong>Having a professor that can assist can be
+              very useful to handle bureocratic issues.</div>
+          </div>
+          <div class="icon-box">
+            <span class="icon-box-icon">🤹‍♀️</span>
+            <div class="icon-box-content"><strong>SKILLSET</strong>Different kind of tasks need to be performed, ensure
+              that the team can cover a fan of possible tasks. Check Chapter 7 for more info on the roles.</div>
+          </div>
+          <div class="icon-box">
+            <span class="icon-box-icon">🫂</span>
+            <div class="icon-box-content"><strong>RECRUITMENT</strong>During the year make sure to organize recruitment
+              session. People graduate or go abroad but the material banks is always interested in an extra pair of
+              hands!</div>
+          </div>
+        </div>
+
+        <div class="chapter-header">CHAPTER 3</div>
+        <div class="box full">Before starting the hunt for materials, is important to establish the rules under which
+          the material bank is going to operate. The room or the space you choose is still empty, and this is a nice
+          moment to make a plan on where the scaffholding will be (if they are not already present), what path the
+          visitors will perform and where goes what.</div>
+        <div class="icon-box-row" style="flex-wrap: wrap;">
+          <div class="icon-box">
+            <span class="icon-box-icon">🪶</span>
+            <div class="icon-box-content"><strong>LIGHT UP, HEAVY DOWN</strong>The more something is heavy, the more
+              close to the ground should be. This will avoid dangerous hanging object and facilitate future withdrawal
+              from the material bank.</div>
+          </div>
+          <div class="icon-box">
+            <span class="icon-box-icon">❌</span>
+            <div class="icon-box-content"><strong>NOT ON THE GROUND</strong>Storing object should be possible only on
+              shelves and never on the floor. This grant more order and avoid stumbling on random objects.</div>
+          </div>
+          <div class="icon-box">
+            <span class="icon-box-icon">🗄</span>
+            <div class="icon-box-content"><strong>CAPABILITIES</strong>Is almost inevitable that the amount of material
+              you get and collect will be more than the one you will be able to give out.</div>
+          </div>
+          <div class="icon-box">
+            <span class="icon-box-icon">🐿️</span>
+            <div class="icon-box-content"><strong>DON’T BE A SQUIRREL!</strong>You don’t want to accumulate, give away
+              as much material as you can!</div>
+          </div>
+          <div class="icon-box">
+            <span class="icon-box-icon">🧹</span>
+            <div class="icon-box-content"><strong>CLEAN !!!</strong>Organize periodically a clean up, where materials
+              are reorganized and displaced correctly.</div>
+          </div>
+        </div>
+
+        <div class="chapter-header">CHAPTER 4</div>
+        <div class="box full">Now that your Material bank is equipped is time to fill it up. There is a bunch of way you
+          can fill your Material Bank: collecting from students at the end of the semester, strolling
+          around.<br><br>Strolling consist in going around your materila bank, looking for material. This usually happen
+          in a predefined area of some kilometers.</div>
+        <div class="icon-box-row" style="flex-wrap: wrap;">
+          <div class="icon-box">
+            <span class="icon-box-icon">🗒️</span>
+            <div class="icon-box-content"><strong>RULES</strong>Decide before hand which kind of materials you accept
+              and which ones are instead forbidden.</div>
+          </div>
+          <div class="icon-box">
+            <span class="icon-box-icon">☎️</span>
+            <div class="icon-box-content"><strong>HOTLINE</strong>Establish contacts with companies, museums or others
+              nearby to collect precious materials. But remember, you are not their bin!</div>
+          </div>
+          <div class="icon-box">
+            <span class="icon-box-icon">📦</span>
+            <div class="icon-box-content"><strong>MARKET ANALYSIS</strong>Is a material used every year in a certain
+              class? See if you find good quality material from alternative flows instead of buying it new. Then inform
+              the professor about it.</div>
+          </div>
+          <div class="icon-box">
+            <span class="icon-box-icon">👚</span>
+            <div class="icon-box-content"><strong>CLOTHES & CO.</strong>Avoid to store objects in general, especially
+              clothes.</div>
+          </div>
+          <div class="icon-box">
+            <span class="icon-box-icon">🪛</span>
+            <div class="icon-box-content"><strong>MATERIAL ACTIVATION</strong>To free some space, you can organize
+              material specific workshop to upcycle material. Is a good opportunity to learn new skills and involve the
+              community.</div>
+          </div>
+        </div>
+
+        <div class="chapter-header">CHAPTER 5</div>
+        <div class="box full">You will notice from the very beginning that sometimes you have to unscrew stuff or move
+          them here and there. That's why we highly suggest to build some tools to help you out. You can look in to the
+          / MACHINES section of this website. Not only physical but also digital tools are important: decide with your
+          team which communication channels would you like to use and which office tools suites the task you need to
+          perform.<br><br>With communication tools used by the member of the Material Bank we intend both to communicate
+          within the group (ex: group chat) and with the users of the material bank (ex: email or Instagram
+          page)<br><br>We suggest a system that involve shared document like Google workspace, Microsoft Suite, Notion
+          etc.</div>
+        <div class="icon-box">
+          <span class="icon-box-icon">📸</span>
+          <div class="icon-box-content"><strong>DOCUMENT! DOKUMENT!</strong>Documentation is very important for the
+            future of the material banks initiative. Make sure to have enough space to store pictures and files. You can
+            ask your University to have some free cloud storage.</div>
+        </div>
+
+        <div class="chapter-header">CHAPTER 6</div>
+        <div class="box full">You have a place, people to help you, a storage and materials that are ready to become
+          something else. But wait, nobody knows about the existence of the place! From this moment on, communication
+          will be one of the core activity to guarantee that the material bank is used.</div>
+        <div class="icon-box">
+          <span class="icon-box-icon">🏴‍☠️</span>
+          <div class="icon-box-content"><strong>BE RECOGNIZABLE</strong>Use your brand to show that you are present in
+            the area and on the objects you realize for the community..</div>
+        </div>
+
+        <div class="chapter-header">CHAPTER 7</div>
+        <div class="box full">Despite a Material Bank is based on a horizontal concept where verybody contributes in
+          equal way to the iniative, some roles need to be defined. In this way responsabilities are distributed and the
+          organization is going to be more efficient. We would suggest to have at least those key figures: a Treasurer ,
+          a Community Manager , a Secretary , a Social Media Manager and a Maker Chief.<br><br>The treasurer is the
+          person in charge of administrating money and resources within the association. He keeps track of donation or
+          possible funds opportunity.<br><br>The community manager is the person in charge of recruitment of new
+          members. He is in charge of organize the meetings and make sure that everyone is updated with eventual
+          changes.<br><br>The secretary is a more "official one". The secretary handle bureocratic tasks and interface
+          himself with institutional figures. The secretary usually have the big picture of the iniatitives and lead
+          action to fix problem or take the initiative for eventual improvements.<br><br>The Media Manager take care of
+          all the communication media, from poster and printed media to digital ones, like social networks.<br><br>A
+          maker chief is in charge of the administration and the developemnt of the practical projects.</div>
+        <div class="icon-box">
+          <span class="icon-box-icon">📆</span>
+          <div class="icon-box-content"><strong>MEETINGS</strong>Is a good practice to have regular meeting. Making
+            protocol of the meetings is also a nice way to keep everyone on the same track.</div>
+        </div>
+      </section>
+
+      <!-- Resources -->
+      <section id="resources-section" class="content-section">
+        <div class="back-bar desk-only">
+          <button class="back-to-home-desk"><img src="svgs/backbutton.svg" alt="Back Icon" class="back-icon">
+            BACK</button>
+        </div>
+        <div class="book-box" style="font-weight: bold; margin-top: 16px; margin-bottom: 16px;">SOME BOOKS SUGGESTIONS
+        </div>
+        <div class="book-box">Cradle to Cradle: Remaking the Way We Make Things - William McDonough, Michael Braungart
+        </div>
+        <div class="book-box">Design di prodotto per la sostenibilità ambientale: Progettare per il ciclo di vita dei
+          prodotti - Carlo Vezzoli</div>
+        <div class="book-box">RIFIUTI, le cose (e le idee) che scartiamo - John Scanlan</div>
+        <div class="book-box">Wasteocene, stories from the Global Dump - Marco Armiero</div>
+        <div class="book-box">Made to Break: Technology and Obsolescence in America - Giles Slade</div>
+        <div class="book-box">Secondhand: Travels in the New Global Garage Sale - Adam Minter</div>
+        <div class="book-box">Junkyard Planet: Travels in the Billion-Dollar Trash Trade - Adam Minter</div>
+        <div class="book-box">IT’S NOT EASY BEING GREEN - Aart Van Bezooyen, Paula Rachè</div>
+        <div class="book-box">The toaster project or an eroic attempt to build a simple electric appliance from scratch
+          - Thomas Thwaites</div>
+        <div class="book-box">Cobalt Red: How the Blood of the Congo Powers Our Lives - Siddharth Kara</div>
+        <div class="book-box">U-JOINTS: A taxonomy of connections - Andrea Caputo, Anniina Koivu</div>
+        <div class="book-box">Radical Matter Rethinking Materials for a Sustainable Future - Kate Franklin, Caroline
+          Till</div>
+        <div class="book-box" style="font-weight: bold; margin-top: 16px; margin-bottom: 16px;">WEBSITES WE SUGGEST TO
+          CHECK</div>
+        <div class="book-box"><a href="https://lowtechmagazine.com" target="_blank"
+            style="color: rgb(217, 38, 44);">lowtechmagazine</a>
+        </div>
+        <div class="book-box" style="font-weight: bold; margin-top: 16px; margin-bottom: 16px;">MOVIES ABOUT THE TOPIC
+        </div>
+        <div class="book-box">The Gleaners and I (Original title: Les glaneurs et la glaneuse) - Agnès Varda</div>
+        <div class="book-box">Tokyo Godfathers - Satoshi Kon</div>
+      </section>
+
+      <!-- Friends -->
+      <section id="friends-section" class="content-section">
+        <div class="back-bar desk-only">
+          <button class="back-to-home-desk"><img src="svgs/backbutton.svg" alt="Back Icon" class="back-icon">
+            BACK</button>
+        </div>
+        <div class="book-box" style="font-weight: bold;">FRIENDS</div>
+        <div class="box full" style="margin-bottom: 16px;">
+          <div style="font-size: 12px; margin-bottom: 5px;">Via Antonio Rosmini, 9, Bolzano</div>
+          <strong>BITZ unibz fablab</strong><br><br>
+          The objective of the BITZ unibz fablab is to create and diffuse the make culture by ideating, hosting and
+          organizing a plan of activities forging together research, education and unibz third mission. BITZ unibz
+          fablab is the digital modelling workshop of the Free University of Bolzano. It is open to public, citizens can
+          access to the fablab for a small annual fee, there are some costs for material and for machine-use.
+        </div>
+        <div class="box full" style="margin-bottom: 16px;">
+          <div style="font-size: 12px; margin-bottom: 5px;">Via Dalmazia 77, BZ</div>
+          <strong>Pedale Radicale</strong><br><br>
+          Repairing and learning about bicycle at Spazio77.
+        </div>
+        <div class="box full" style="margin-bottom: 16px;">
+          <div style="font-size: 12px; margin-bottom: 5px;">Via S. Giuseppe 1B, Bressanone</div>
+          <strong>REX - Material und Dinge</strong><br><br>
+          Rex is a shop were everyone can buy or donate secondhand objects. The price range from a minimum to a maximum,
+          based on how much the user can spend. Objects range from plates and mugs to bikes and furniture. So if you
+          need something for your apartment, try here first before buying something new!
+        </div>
+        <div class="box full" style="margin-bottom: 16px;">
+          <div style="font-size: 12px; margin-bottom: 5px;">Via Dalmazia 77, BZ</div>
+          <strong>Repair Cafè</strong><br><br>
+          We are a group of volunteers associated with the OEW, we offer our "know-how" to repair objects, clothes, PCs
+          etc. at "Space 77".
+        </div>
+        <div class="box full" style="margin-bottom: 16px;">
+          <div style="font-size: 12px; margin-bottom: 5px;">Bolzano, Instagram Project</div>
+          <strong>STOOPINGBZ</strong><br><br>
+          Everyday is a giveaway<br><br>
+          Stooping is an Instagram page founded by two eco-social design student. Trough the STOOPINGBZ page, people can
+          signal furniture or objects lying around the streets in Bolzano using the message function. The admins will
+          post then a picture of the objects and where they are on the map. If you are interested, you can go in the
+          designated location and pick them up (if they are still there).
+        </div>
+      </section>
+
+    </main>
+  </div>
 </body>
+
 </html>
