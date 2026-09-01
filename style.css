@@ -179,6 +179,11 @@ a:hover * {
   margin: 10px 0;
 }
 
+.sidebar-footer a[href*="frizzanteo.com"],
+.sidebar-footer a[href*="frizzanteo.com"]:visited {
+  color: #D9262C;
+}
+
 /* Main Content Area */
 #content-area {
   flex-grow: 1;
@@ -369,7 +374,20 @@ a:hover * {
   border: 1px solid black;
   padding: 10px 16px;
   width: 100%;
-  margin-bottom: 4px;
+  margin-bottom: -1px;
+}
+
+/* Resource Category Groups */
+.resource-category {
+  margin-top: 24px;
+}
+
+.resource-category .book-box {
+  margin-bottom: -1px;
+}
+
+.resource-category .chapter-header {
+  margin-bottom: 0;
 }
 
 /* Mobile Adjustments */
@@ -463,6 +481,10 @@ body.dark-mode .book-box {
   border: 1px solid white;
   background-color: black;
   color: white;
+}
+
+body.dark-mode .resource-category .book-box {
+  border-color: white;
 }
 
 body.dark-mode .back-bar,

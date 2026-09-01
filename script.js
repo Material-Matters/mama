@@ -129,4 +129,51 @@ document.addEventListener("DOMContentLoaded", () => {
     sidebar.style.display = "flex";
     contentArea.style.display = "none";
   }
+
+  // Swipe-right to go back (touch + trackpad)
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  contentArea.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  contentArea.addEventListener("touchend", (e) => {
+    const deltaX = e.changedTouches[0].screenX - touchStartX;
+    const deltaY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+    // Swipe right at least 50px, and more horizontal than vertical
+    if (deltaX > 50 && deltaX > deltaY) {
+      goBack();
+    }
+  }, { passive: true });
+
+  // Extract back logic into a reusable function
+  function goBack() {
+    // Only trigger if a content section (not home) is active
+    const homeSection = document.getElementById("p5-container");
+    if (homeSection && homeSection.classList.contains("active-section")) return;
+
+    triggerFade(() => {
+      contentSections.forEach(sec => sec.classList.remove("active-section"));
+      if (homeSection) {
+        homeSection.classList.add("active-section");
+        if (typeof window.loop === 'function') {
+          window.loop();
+        }
+      }
+      if (window.innerWidth <= 768) {
+        sidebar.style.display = "flex";
+        contentArea.style.display = "none";
+      }
+    });
+  }
+
+  // Re-wire existing back buttons to use the same function
+  backBtns.forEach(btn => {
+    // Remove old listeners by cloning (clean approach)
+    const newBtn = btn.cloneNode(true);
+    btn.parentNode.replaceChild(newBtn, btn);
+    newBtn.addEventListener("click", goBack);
+  });
 });
