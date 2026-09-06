@@ -243,6 +243,9 @@ a:hover * {
 
 /* Black Back Bar Desktop */
 .back-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   background-color: black;
   color: white;
   padding: 16px 20px;
